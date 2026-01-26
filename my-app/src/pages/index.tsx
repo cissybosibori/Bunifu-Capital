@@ -4,10 +4,12 @@ import { TrustedBySection } from "@/components/sections/TrustedBySection";
 import { PlatformSection } from "@/components/sections/PlatformSection";
 import { WhyNetwrixSection } from "@/components/sections/WhyNetwrixSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
+import { GetInTouchSection } from "@/components/sections/GetInTouchSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { CTASection } from "@/components/sections/CTASection";
+import { SeeInActionSection } from "@/components/sections/SeeInActionSection";
 import { ResourcesSection } from "@/components/sections/ResourcesSection";
+import { StayUpdatedSection } from "@/components/sections/StayUpdatedSection";
 import { Footer } from "@/components/layout/Footer";
 
 const Index = () => {
@@ -20,10 +22,12 @@ const Index = () => {
         <PlatformSection />
         <WhyNetwrixSection />
         <HowItWorksSection />
+        <GetInTouchSection />
         <StatsSection />
         <TestimonialsSection />
-        <CTASection />
+        <SeeInActionSection />
         <ResourcesSection />
+        <StayUpdatedSection />
       </main>
       <Footer />
     </div>

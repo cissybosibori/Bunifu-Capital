@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -42,61 +42,75 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+
   return (
-    <section className="py-20 lg:py-32 bg-secondary/30">
+    <section className="netwrix-section py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-            Trusted by professionals
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <p className="text-accent font-medium mb-3">Trusted by professionals</p>
+          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-2">
             Don't just take our word for it
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.author}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card p-6 rounded-2xl border border-border card-hover"
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Previous"
+              onClick={() => emblaApi?.scrollPrev()}
+              className="p-2 rounded-full hover:bg-foreground/5"
             >
-              <Quote className="w-8 h-8 text-accent/30 mb-4" />
-              <p className="text-card-foreground mb-6 leading-relaxed">
-                "{testimonial.quote}"
-              </p>
-              <div className="border-t border-border pt-4">
-                <p className="font-semibold text-card-foreground">
-                  {testimonial.author}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  {testimonial.role}, {testimonial.company}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next"
+              onClick={() => emblaApi?.scrollNext()}
+              className="p-2 rounded-full hover:bg-foreground/5"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+          <a href="#" className="text-accent font-medium hover:underline underline-offset-4">
+            See All Customer Stories →
+          </a>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center"
-        >
-          <Button variant="cta" size="lg">
-            See All Customer Stories
-          </Button>
-        </motion.div>
+        <div ref={emblaRef} className="overflow-hidden border border-border">
+          <div className="flex">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={`${testimonial.author}-${index}`}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.03 }}
+                className="min-w-0 flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_50%] border-r border-border last:border-r-0"
+              >
+                <div className="p-8">
+                  <Quote className="h-10 w-10 text-accent mb-6" />
+                  <p className="text-xl leading-relaxed text-foreground/90">
+                    “{testimonial.quote}”
+                  </p>
+                  <div className="mt-8 text-sm text-foreground/70">
+                    <div className="font-medium text-foreground">{testimonial.author}</div>
+                    <div>
+                      {testimonial.role}, {testimonial.company}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

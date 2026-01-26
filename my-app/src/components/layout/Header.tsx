@@ -12,61 +12,65 @@ const navItems = [
   { label: "Pricing", hasDropdown: false },
 ];
 
-const topNavItems = [
-  { label: "Contact us" },
-  { label: "Support" },
-  { label: "Community" },
-];
+const BANNER_DISMISSED_KEY = "netwrix_banner_dismissed_v1";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(() => {
+    try {
+      return localStorage.getItem(BANNER_DISMISSED_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
+
+  const dismissBanner = () => {
+    try {
+      localStorage.setItem(BANNER_DISMISSED_KEY, "1");
+    } catch {
+      // ignore
+    }
+    setBannerVisible(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top bar */}
-      <div className="bg-primary text-primary-foreground/80 text-xs">
-        <div className="container mx-auto px-4 flex items-center justify-between h-8">
-          <div className="flex items-center gap-1 text-primary-foreground">
-            <span className="text-accent">★</span>
-            <span>Magic Quadrant™ for Privileged Access Management 2024.</span>
-            <a href="#" className="text-accent hover:underline ml-1">
-              Netwrix Recognized for first time. Download the report
-            </a>
-          </div>
-          <div className="hidden lg:flex items-center gap-6">
-            {topNavItems.map((item) => (
-              <a
-                key={item.label}
-                href="#"
-                className="hover:text-primary-foreground transition-colors"
+      {/* Announcement banner */}
+      <AnimatePresence initial={false}>
+        {bannerVisible && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 44, opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="bg-accent text-accent-foreground"
+          >
+            <div className="container mx-auto px-4 h-11 flex items-center justify-center text-sm relative">
+              <p className="text-center max-w-3xl">
+                Magic Quadrant™ for Privileged Access Management 2025: Netwrix Recognized for the Fourth Year in a Row.{" "}
+                <a href="#" className="underline underline-offset-4">
+                  Download the report.
+                </a>
+              </p>
+              <button
+                type="button"
+                aria-label="Close banner"
+                onClick={dismissBanner}
+                className="absolute right-4 top-1/2 -translate-y-1/2 opacity-90 hover:opacity-100"
               >
-                {item.label}
-              </a>
-            ))}
-            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-primary-foreground/20">
-              <button className="hover:text-primary-foreground transition-colors">
-                <User className="w-4 h-4" />
-              </button>
-              <button className="hover:text-primary-foreground transition-colors">
-                <Search className="w-4 h-4" />
-              </button>
-              <button className="flex items-center gap-1 hover:text-primary-foreground transition-colors">
-                <Globe className="w-4 h-4" />
-                <span>EN</span>
+                <X className="h-5 w-5" />
               </button>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Main navigation */}
-      <div className="bg-background/95 backdrop-blur-md border-b border-border">
+      <div className="bg-background border-b border-border">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary">
-              <span className="text-accent">/</span>netwrix
-            </span>
+          <a href="/" className="flex items-center text-2xl font-semibold tracking-tight">
+            netwrix
           </a>
 
           {/* Desktop Navigation */}
@@ -75,7 +79,7 @@ export function Header() {
               <a
                 key={item.label}
                 href="#"
-                className="nav-link flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground"
+                className="flex items-center gap-1 px-4 py-2 text-sm text-foreground/80 hover:text-foreground"
               >
                 {item.label}
                 {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
@@ -83,24 +87,28 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* Right side actions */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button className="p-2 rounded-full hover:bg-foreground/5" aria-label="Search">
+              <Search className="w-5 h-5" />
+            </button>
+            <button className="p-2 rounded-full hover:bg-foreground/5" aria-label="Account">
+              <User className="w-5 h-5" />
+            </button>
             <Button variant="navCta" size="default">
               Get a demo
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <button className="p-2 rounded-full hover:bg-foreground/5" aria-label="Language">
+              <Globe className="w-5 h-5" />
+            </button>
+            <button className="p-2 rounded-full hover:bg-foreground/5" aria-label="Menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 

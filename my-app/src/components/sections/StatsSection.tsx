@@ -9,44 +9,39 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="hero-gradient py-20 lg:py-28 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-10" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-sm font-medium mb-4">
-            Stats
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground">
-            Our numbers speak for themselves
-          </h2>
-        </motion.div>
+    <section className="netwrix-section bg-background py-16 lg:py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.45 }}
+          >
+            <p className="text-accent font-medium mb-3">Stats</p>
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
+              Our numbers speak for themselves
+            </h2>
+          </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.value}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
-            >
-              <div className="text-5xl md:text-6xl font-bold text-accent mb-3">
-                {stat.value}
-              </div>
-              <p className="text-primary-foreground/80">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
+          <div className="border border-border">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.value}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.35, delay: index * 0.05 }}
+                className="px-6 py-8"
+              >
+                <div className="flex items-start justify-between gap-6">
+                  <div className="text-5xl md:text-6xl font-semibold text-accent">{stat.value}</div>
+                  <p className="text-foreground/70 max-w-sm pt-2">{stat.label}</p>
+                </div>
+                {index !== stats.length - 1 && <div className="mt-8 border-t border-border" />}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

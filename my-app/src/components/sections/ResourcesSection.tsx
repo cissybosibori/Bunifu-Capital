@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Mic, ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const resources = [
@@ -9,7 +9,7 @@ const resources = [
     title: "Securing Data in the Age of AI with DSPM",
     author: "Martin Cannard",
     category: "Data Security Posture Management",
-    image: "https://cdn.sanity.io/images/r09655ln/production/edd4c4d3aa8c098c66670845a5d8f3cd7032b086-679x800.jpg",
+    gradient: "from-[#17173a] via-[#17173a] to-[#0e2f29]",
   },
   {
     type: "Podcasts",
@@ -17,66 +17,67 @@ const resources = [
     title: "Voices of Cyber Asia: Episode 4- Why Visibility Comes First",
     author: "Terry Burgess, Anthony Moillic",
     category: "Security Insights",
-    image: "https://cdn.sanity.io/images/r09655ln/production/9a693809be358a6a558a0b520c6d33d127a072d6-300x300.jpg",
+    gradient: "from-[#17173a] via-[#17173a] to-[#2f1b3a]",
   },
 ];
 
 export function ResourcesSection() {
   return (
-    <section className="py-20 lg:py-32 bg-secondary/30">
+    <section className="netwrix-section py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-12"
+          className="grid lg:grid-cols-2 gap-10 items-start mb-12"
         >
           <div>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-              Featured resources
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Geek out with us
+            <p className="text-accent font-medium mb-3">Featured resources</p>
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
+              Geek out with <br className="hidden md:block" />
+              us
             </h2>
+            <Button variant="ctaOutline" size="lg" className="mt-7 group">
+              Resource center
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </div>
-          <Button variant="outline" className="mt-4 md:mt-0 group">
-            Resource center
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8">
           {resources.map((resource, index) => (
             <motion.article
               key={resource.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-card rounded-2xl overflow-hidden border border-border card-hover cursor-pointer"
+              className="group relative overflow-hidden border border-border bg-[#141129] text-white min-h-[340px] cursor-pointer"
             >
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={resource.image}
-                  alt={resource.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-accent text-sm font-medium mb-3">
+              <div className={`absolute inset-0 bg-gradient-to-br ${resource.gradient}`} />
+              <div className="absolute -bottom-10 -right-10 h-64 w-64 bg-[radial-gradient(circle,rgba(63,191,123,0.55),rgba(63,191,123,0)_65%)] opacity-70" />
+              <div className="absolute inset-0 bg-grid-pattern bg-[size:44px_44px] opacity-[0.12]" />
+
+              <div className="relative p-8 h-full flex flex-col">
+                <div className="flex items-center gap-2 text-emerald-300 text-sm font-medium mb-4">
                   <resource.icon className="w-4 h-4" />
                   {resource.type}
                 </div>
-                <h3 className="text-xl font-semibold text-card-foreground mb-2 group-hover:text-accent transition-colors">
+
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight mb-5">
                   {resource.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {resource.author}
-                </p>
-                <span className="inline-block px-3 py-1 rounded-full bg-secondary text-xs font-medium text-secondary-foreground">
-                  {resource.category}
-                </span>
+
+                <div className="mt-auto flex items-center gap-3 text-white/80">
+                  <div className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center text-xs">
+                    {resource.author.split(" ")[0].slice(0, 1)}
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-white">{resource.author}</div>
+                    <div className="text-xs text-white/70">{resource.category}</div>
+                  </div>
+                </div>
               </div>
             </motion.article>
           ))}

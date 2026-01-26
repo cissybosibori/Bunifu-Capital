@@ -13,44 +13,35 @@ const logos = [
 
 export function TrustedBySection() {
   return (
-    <section className="py-12 bg-secondary/50 border-y border-border">
+    <section className="netwrix-section border-b border-border bg-background">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
-        >
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-            Trusted by leading organizations worldwide
-          </p>
-        </motion.div>
+        <a href="#" className="block py-10 lg:py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.45 }}
+            className="flex flex-col items-center gap-4"
+          >
+            <span className="text-accent font-medium">Read their Stories</span>
+            <div className="flex items-center gap-3 text-muted-foreground">
+              <span>Trusted by</span>
+            </div>
 
-        <div className="relative overflow-hidden">
-          <div className="flex items-center gap-12 logo-scroll">
-            {[...logos, ...logos].map((logo, index) => (
-              <div
-                key={`${logo.name}-${index}`}
-                className="flex-shrink-0 h-12 w-32 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
-              >
-                <img src={logo.url} alt={logo.name} className="max-h-full max-w-full object-contain" />
+            <div className="relative w-full overflow-hidden">
+              <div className="flex items-center gap-10 logo-scroll">
+                {[...logos, ...logos].map((logo, index) => (
+                  <div
+                    key={`${logo.name}-${index}`}
+                    className="flex-shrink-0 h-10 w-32 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <img src={logo.url} alt={logo.name} className="max-h-full max-w-full object-contain grayscale" />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-8"
-        >
-          <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline">
-            Read their Stories →
-          </a>
-        </motion.div>
+            </div>
+          </motion.div>
+        </a>
       </div>
     </section>
   );

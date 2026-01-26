@@ -1,85 +1,110 @@
-import { motion } from "framer-motion";
-import { Linkedin, Twitter, Youtube, Facebook } from "lucide-react";
-
-const footerLinks = {
-  Platform: ["1Secure", "Data Security Posture Management", "Directory Management", "Endpoint Management", "Identity Management"],
-  Solutions: ["Access Control", "Compliance", "Data Protection", "Threat Detection", "Privileged Access"],
-  Resources: ["Blog", "Webinars", "Case Studies", "Whitepapers", "Documentation"],
-  Company: ["About Us", "Careers", "Partners", "Contact", "Press"],
-};
-
-const socialLinks = [
-  { icon: Linkedin, href: "#" },
-  { icon: Twitter, href: "#" },
-  { icon: Youtube, href: "#" },
-  { icon: Facebook, href: "#" },
-];
-
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="netwrix-section bg-background">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
-          {/* Logo and description */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
-            <motion.a
-              href="/"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="inline-block mb-4"
-            >
-              <span className="text-2xl font-bold">
-                <span className="text-accent">/</span>netwrix
-              </span>
-            </motion.a>
-            <p className="text-primary-foreground/70 text-sm mb-6">
-              Data security that starts with identity™
-            </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-navy transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-10">
+          <div>
+            <h3 className="font-semibold mb-4">Solutions</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><a className="hover:text-foreground" href="#">Our Platform</a></li>
+              <li><a className="hover:text-foreground" href="#">Data Security Posture Management</a></li>
+              <li><a className="hover:text-foreground" href="#">Directory Management</a></li>
+              <li><a className="hover:text-foreground" href="#">Endpoint Management</a></li>
+              <li><a className="hover:text-foreground" href="#">Identity Management</a></li>
+              <li><a className="hover:text-foreground" href="#">Identity Threat Detection & Response</a></li>
+              <li><a className="hover:text-foreground" href="#">Privileged Access Management</a></li>
+              <li><a className="hover:text-foreground" href="#">Environments</a></li>
+              <li><a className="hover:text-foreground" href="#">Integrations</a></li>
+            </ul>
           </div>
 
-          {/* Footer links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="font-semibold mb-4">{title}</h3>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h3 className="font-semibold mb-4">Products</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><a className="hover:text-foreground" href="#">Netwrix 1Secure for MSPs</a></li>
+              <li><a className="hover:text-foreground" href="#">Netwrix Access Analyzer</a></li>
+              <li><a className="hover:text-foreground" href="#">Netwrix Auditor</a></li>
+              <li><a className="hover:text-foreground" href="#">Netwrix Directory Manager</a></li>
+              <li><a className="hover:text-foreground" href="#">Netwrix Endpoint Protector</a></li>
+              <li><a className="hover:text-foreground" href="#">Netwrix Identity Manager</a></li>
+              <li><a className="hover:text-foreground" href="#">Netwrix Privilege Secure</a></li>
+              <li><a className="text-accent hover:underline underline-offset-4" href="#">See All Products</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">Resources</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><a className="hover:text-foreground" href="#">Blog</a></li>
+              <li><a className="hover:text-foreground" href="#">Cybersecurity Glossary</a></li>
+              <li><a className="hover:text-foreground" href="#">Documentation</a></li>
+              <li><a className="hover:text-foreground" href="#">Freeware</a></li>
+              <li><a className="hover:text-foreground" href="#">News</a></li>
+              <li><a className="hover:text-foreground" href="#">Publications</a></li>
+              <li><a className="hover:text-foreground" href="#">Research</a></li>
+              <li><a className="hover:text-foreground" href="#">Webinars</a></li>
+              <li><a className="text-accent hover:underline underline-offset-4" href="#">See All Resources</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">Partners</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><a className="hover:text-foreground" href="#">Partner Program</a></li>
+              <li><a className="hover:text-foreground" href="#">Become a Partner</a></li>
+              <li><a className="hover:text-foreground" href="#">MSPs</a></li>
+            </ul>
+          </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-primary-foreground/50">
-            © {new Date().getFullYear()} Netwrix Corporation. All rights reserved.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-primary-foreground/50">
-            <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-accent transition-colors">Cookie Settings</a>
-            <a href="#" className="hover:text-accent transition-colors">Legal</a>
+        <div className="mt-12 pt-10 border-t border-border grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-10">
+          <div>
+            <h3 className="font-semibold mb-4">Customers</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><a className="hover:text-foreground" href="#">Customer Portal</a></li>
+              <li><a className="hover:text-foreground" href="#">Customer Training</a></li>
+              <li><a className="hover:text-foreground" href="#">Renew License</a></li>
+              <li><a className="hover:text-foreground" href="#">Professional Services</a></li>
+              <li><a className="hover:text-foreground" href="#">Support</a></li>
+              <li><a className="hover:text-foreground" href="#">Knowledge Center</a></li>
+            </ul>
           </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">Why Netwrix</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><a className="hover:text-foreground" href="#">About Us</a></li>
+              <li><a className="hover:text-foreground" href="#">Leadership</a></li>
+              <li><a className="hover:text-foreground" href="#">Netwrix AI</a></li>
+              <li><a className="hover:text-foreground" href="#">Careers</a></li>
+              <li><a className="hover:text-foreground" href="#">News</a></li>
+              <li><a className="hover:text-foreground" href="#">Recognition</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">Compliance</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><a className="hover:text-foreground" href="#">CMMC</a></li>
+              <li><a className="hover:text-foreground" href="#">ISO</a></li>
+              <li><a className="hover:text-foreground" href="#">HIPAA</a></li>
+              <li><a className="hover:text-foreground" href="#">NIST CSF</a></li>
+              <li><a className="hover:text-foreground" href="#">PCI DSS</a></li>
+              <li><a className="hover:text-foreground" href="#">TISAX</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <div className="text-2xl font-semibold tracking-tight mb-2">netwrix</div>
+            <p className="text-sm text-foreground/60">
+              Corporate Headquarters: 6160 Warren Parkway, Suite 100, Frisco, TX, US 75034
+            </p>
+          </div>
+          <p className="text-sm text-foreground/60">
+            © {new Date().getFullYear()} Netwrix Corporation
+          </p>
         </div>
       </div>
     </footer>

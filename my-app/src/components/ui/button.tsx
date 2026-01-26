@@ -16,11 +16,13 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Netwrix specific variants
-        cta: "bg-accent text-accent-foreground hover:bg-accent/80 font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5",
-        ctaOutline: "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold",
-        hero: "bg-accent text-accent-foreground font-semibold px-8 py-3 rounded-lg hover:bg-accent/80 shadow-lg hover:shadow-xl hover:-translate-y-0.5",
-        heroOutline: "border-2 border-primary-foreground/30 text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:bg-primary-foreground/10 hover:border-primary-foreground/50",
-        navCta: "bg-accent text-accent-foreground font-semibold rounded-full hover:bg-accent/80 shadow-md hover:shadow-lg hover:-translate-y-0.5",
+        cta: "rounded-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold",
+        ctaOutline:
+          "rounded-full border border-foreground/30 bg-transparent text-foreground hover:bg-foreground/5 font-semibold",
+        hero: "rounded-full bg-accent text-accent-foreground font-semibold px-8 py-3 hover:bg-accent/90",
+        heroOutline:
+          "rounded-full border border-foreground/30 bg-transparent text-foreground font-semibold px-8 py-3 hover:bg-foreground/5",
+        navCta: "rounded-full bg-accent text-accent-foreground font-semibold hover:bg-accent/90",
       },
       size: {
         default: "h-10 px-4 py-2",

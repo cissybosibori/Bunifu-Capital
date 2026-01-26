@@ -4,36 +4,37 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Netwrix homepage (warm white + indigo accent) */
+    --background: 40 33% 97%;
+    --foreground: 240 10% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 33% 97%;
+    --card-foreground: 240 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 10%;
 
-    /* Netwrix-ish palette */
-    --primary: 214 60% 16%;
+    /* Base ink + accent */
+    --primary: 240 10% 10%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 240 10% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 18% 92%;
+    --muted-foreground: 240 4% 35%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 247 84% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 214 60% 16%;
+    --border: 240 6% 76%;
+    --input: 240 6% 76%;
+    --ring: 247 84% 60%;
 
-    --navy: 214 75% 12%;
+    --navy: 235 40% 16%;
     --radius: 0.8rem;
   }
 
@@ -75,16 +76,40 @@
 
   body {
     @apply bg-background text-foreground;
+    text-rendering: geometricPrecision;
   }
 }
 
 @layer utilities {
+  /* Animation + interaction helpers */
+  .card-hover {
+    @apply transition-transform duration-300 ease-out hover:-translate-y-1;
+  }
+
+  .logo-scroll {
+    animation: marquee 28s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .netwrix-section {
+    @apply border-t border-border;
+  }
+
   .text-gradient {
-    @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent to-navy bg-clip-text text-transparent;
   }
 
   .hero-gradient {
-    @apply bg-gradient-to-br from-primary via-primary to-navy;
+    @apply bg-gradient-to-r from-[#3fbf7b] via-[#1e2740] to-[#140f2e];
   }
 
   .nav-link {

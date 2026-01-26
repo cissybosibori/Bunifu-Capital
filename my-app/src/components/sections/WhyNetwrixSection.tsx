@@ -1,25 +1,24 @@
 import { motion } from "framer-motion";
-import { Layers, Rocket, Clock, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const benefits = [
   {
-    icon: Layers,
+    color: "bg-emerald-400",
     title: "Unified security",
     description: "Netwrix connects the dots between identity and data. Our unified platform gives you complete control over who has access to your data.",
   },
   {
-    icon: Rocket,
+    color: "bg-yellow-400",
     title: "Flexible deployment",
     description: "Today's IT environments are complex. Netwrix provides flexible deployment options for hybrid tech stacks.",
   },
   {
-    icon: Clock,
+    color: "bg-sky-400",
     title: "Faster time to value",
     description: "Get up and running quickly, accelerate time-to-value, and reduce implementation costs.",
   },
   {
-    icon: DollarSign,
+    color: "bg-orange-400",
     title: "Total cost advantage",
     description: "Netwrix software balances enterprise security with simplicity that helps organizations of all sizes achieve competitive TCOs.",
   },
@@ -27,54 +26,44 @@ const benefits = [
 
 export function WhyNetwrixSection() {
   return (
-    <section className="py-20 lg:py-32 bg-secondary/30">
+    <section className="netwrix-section bg-background py-16 lg:py-24">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Why Netwrix?
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Identity and data security, <span className="text-accent">unified</span>
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Netwrix connects the dots between identity, access, and data. Our platform is fast and flexible, 
-              easy to manage, and built to scale with you.
-            </p>
-            <Button variant="cta" size="lg">
-              Learn more about us
-            </Button>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.45 }}
+          className="text-center mb-10 lg:mb-14"
+        >
+          <p className="text-accent font-medium mb-3">Why Netwrix?</p>
+          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight">
+            Identity and data security, unified
+          </h2>
+        </motion.div>
 
-          {/* Right content - Benefits */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card p-6 rounded-xl border border-border card-hover"
-              >
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3">
-                  <benefit.icon className="w-5 h-5 text-accent" />
-                </div>
-                <h3 className="font-semibold text-card-foreground mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {benefit.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="flex gap-5"
+            >
+              <span className={`mt-2 h-3 w-3 ${benefit.color}`} aria-hidden="true" />
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-foreground/70 leading-relaxed">{benefit.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Button variant="ctaOutline" size="lg">
+            Learn more about us
+          </Button>
         </div>
       </div>
     </section>
