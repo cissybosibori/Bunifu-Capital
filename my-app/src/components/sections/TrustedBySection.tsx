@@ -1,0 +1,58 @@
+import { motion } from "framer-motion";
+
+const logos = [
+  { name: "Samsung", url: "https://cdn.sanity.io/images/r09655ln/production/fdea939690b7d45d191565dabec450445afb29a4-200x100.webp" },
+  { name: "IBM", url: "https://cdn.sanity.io/images/r09655ln/production/2d3e2da4774ece31137ed6df9e2fd6af1199d073-180x100.webp" },
+  { name: "UCLA", url: "https://cdn.sanity.io/images/r09655ln/production/c3d898b2b63cef9bc94471869537e19f5ac0f5de-275x100.webp" },
+  { name: "JetBlue", url: "https://cdn.sanity.io/images/r09655ln/production/5f8a8872af33fa90481897f62e739aef7c655826-197x100.webp" },
+  { name: "Uber Freight", url: "https://cdn.sanity.io/images/r09655ln/production/f535f1126b8dbed9dd2457901159003a6a93e1fd-291x100.webp" },
+  { name: "US Marine Corps", url: "https://cdn.sanity.io/images/r09655ln/production/4a382767fed7cfbe110c2d4a5872b954e7feff4a-102x100.webp" },
+  { name: "Veterans Affairs", url: "https://cdn.sanity.io/images/r09655ln/production/b83a862f428ef3fc189af09f80cc050192f0aeb8-300x100.webp" },
+  { name: "King's Hawaiian", url: "https://cdn.sanity.io/images/r09655ln/production/2bb3f7b056f68a061c9d7a6b4cc3ef8d38e2adf2-154x100.webp" },
+];
+
+export function TrustedBySection() {
+  return (
+    <section className="py-12 bg-secondary/50 border-y border-border">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-8"
+        >
+          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            Trusted by leading organizations worldwide
+          </p>
+        </motion.div>
+
+        <div className="relative overflow-hidden">
+          <div className="flex items-center gap-12 logo-scroll">
+            {[...logos, ...logos].map((logo, index) => (
+              <div
+                key={`${logo.name}-${index}`}
+                className="flex-shrink-0 h-12 w-32 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+              >
+                <img src={logo.url} alt={logo.name} className="max-h-full max-w-full object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-8"
+        >
+          <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline">
+            Read their Stories →
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
