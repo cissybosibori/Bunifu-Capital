@@ -65,9 +65,10 @@ export function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-accent font-medium mb-3">Trusted by professionals</p>
+          <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Trusted by professionals</p>
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-2">
-            Don't just take our word for it
+            Don't just take our{" "}
+            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">word for it</span>
           </h2>
         </motion.div>
 
@@ -77,7 +78,7 @@ export function TestimonialsSection() {
               type="button"
               aria-label="Previous"
               onClick={() => emblaApi?.scrollPrev()}
-              className="p-2 rounded-full hover:bg-foreground/5"
+              className="p-2 rounded-full hover:bg-rainbow-red/10 hover:text-rainbow-red transition-all duration-300"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
@@ -85,12 +86,12 @@ export function TestimonialsSection() {
               type="button"
               aria-label="Next"
               onClick={() => emblaApi?.scrollNext()}
-              className="p-2 rounded-full hover:bg-foreground/5"
+              className="p-2 rounded-full hover:bg-rainbow-blue/10 hover:text-rainbow-blue transition-all duration-300"
             >
               <ChevronRight className="h-6 w-6" />
             </button>
           </div>
-          <a href="#" className="text-accent font-medium hover:underline underline-offset-4">
+          <a href="#" className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium hover:underline underline-offset-4 transition-all duration-300">
             See All Customer Stories →
           </a>
         </div>
@@ -106,14 +107,19 @@ export function TestimonialsSection() {
                 transition={{ duration: 0.4, delay: index * 0.03 }}
                 className="min-w-0 flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_50%] border-r border-border last:border-r-0"
               >
-                <div className="p-8">
-                  <Quote className="h-10 w-10 text-accent mb-6" />
-                  <p className="text-xl leading-relaxed text-foreground/90">
+                <div className="p-8 group hover:bg-gradient-to-br hover:from-rainbow-red/5 hover:via-rainbow-yellow/5 hover:to-rainbow-blue/5 transition-all duration-300">
+                  <Quote 
+                    className="h-10 w-10 mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12"
+                    style={{
+                      color: `hsl(var(--rainbow-${index % 7 === 0 ? 'red' : index % 7 === 1 ? 'orange' : index % 7 === 2 ? 'yellow' : index % 7 === 3 ? 'green' : index % 7 === 4 ? 'blue' : index % 7 === 5 ? 'indigo' : 'violet'}))`,
+                    }}
+                  />
+                  <p className="text-xl leading-relaxed text-foreground/90 group-hover:text-foreground transition-colors duration-300">
                     “{testimonial.quote}”
                   </p>
                   <div className="mt-8 text-sm text-foreground/70">
-                    <div className="font-medium text-foreground">{testimonial.author}</div>
-                    <div>
+                    <div className="font-medium text-foreground group-hover:text-gradient group-hover:bg-rainbow-gradient group-hover:bg-[length:200%_200%] group-hover:animate-rainbow-shift group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">{testimonial.author}</div>
+                    <div className="group-hover:text-foreground/80 transition-colors duration-300">
                       {testimonial.role}, {testimonial.company}
                     </div>
                   </div>

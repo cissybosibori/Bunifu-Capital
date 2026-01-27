@@ -6,29 +6,37 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><a className="hover:text-foreground" href="#">Our Platform</a></li>
-              <li><a className="hover:text-foreground" href="#">Data Security Posture Management</a></li>
-              <li><a className="hover:text-foreground" href="#">Directory Management</a></li>
-              <li><a className="hover:text-foreground" href="#">Endpoint Management</a></li>
-              <li><a className="hover:text-foreground" href="#">Identity Management</a></li>
-              <li><a className="hover:text-foreground" href="#">Identity Threat Detection & Response</a></li>
-              <li><a className="hover:text-foreground" href="#">Privileged Access Management</a></li>
-              <li><a className="hover:text-foreground" href="#">Environments</a></li>
-              <li><a className="hover:text-foreground" href="#">Integrations</a></li>
+              {[
+                { text: "Our Platform", color: "hover:text-rainbow-red" },
+                { text: "Data Security Posture Management", color: "hover:text-rainbow-orange" },
+                { text: "Directory Management", color: "hover:text-rainbow-yellow" },
+                { text: "Endpoint Management", color: "hover:text-rainbow-green" },
+                { text: "Identity Management", color: "hover:text-rainbow-blue" },
+                { text: "Identity Threat Detection & Response", color: "hover:text-rainbow-indigo" },
+                { text: "Privileged Access Management", color: "hover:text-rainbow-violet" },
+                { text: "Environments", color: "hover:text-rainbow-red" },
+                { text: "Integrations", color: "hover:text-rainbow-orange" },
+              ].map((item, idx) => (
+                <li key={idx}><a className={`transition-colors duration-300 ${item.color}`} href="#">{item.text}</a></li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Products</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><a className="hover:text-foreground" href="#">Netwrix 1Secure for MSPs</a></li>
-              <li><a className="hover:text-foreground" href="#">Netwrix Access Analyzer</a></li>
-              <li><a className="hover:text-foreground" href="#">Netwrix Auditor</a></li>
-              <li><a className="hover:text-foreground" href="#">Netwrix Directory Manager</a></li>
-              <li><a className="hover:text-foreground" href="#">Netwrix Endpoint Protector</a></li>
-              <li><a className="hover:text-foreground" href="#">Netwrix Identity Manager</a></li>
-              <li><a className="hover:text-foreground" href="#">Netwrix Privilege Secure</a></li>
-              <li><a className="text-accent hover:underline underline-offset-4" href="#">See All Products</a></li>
+              {[
+                { text: "Bunifu Capital Platform", color: "hover:text-rainbow-yellow" },
+                { text: "Access Analyzer", color: "hover:text-rainbow-green" },
+                { text: "Financial Auditor", color: "hover:text-rainbow-blue" },
+                { text: "Directory Manager", color: "hover:text-rainbow-indigo" },
+                { text: "Endpoint Protector", color: "hover:text-rainbow-violet" },
+                { text: "Identity Manager", color: "hover:text-rainbow-red" },
+                { text: "Privilege Secure", color: "hover:text-rainbow-orange" },
+              ].map((item, idx) => (
+                <li key={idx}><a className={`transition-colors duration-300 ${item.color}`} href="#">{item.text}</a></li>
+              ))}
+              <li><a className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent hover:underline underline-offset-4 transition-all duration-300" href="#">See All Products</a></li>
             </ul>
           </div>
 
@@ -50,9 +58,9 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Partners</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><a className="hover:text-foreground" href="#">Partner Program</a></li>
-              <li><a className="hover:text-foreground" href="#">Become a Partner</a></li>
-              <li><a className="hover:text-foreground" href="#">MSPs</a></li>
+              <li><a className="hover:text-rainbow-green transition-colors duration-300" href="#">Partner Program</a></li>
+              <li><a className="hover:text-rainbow-blue transition-colors duration-300" href="#">Become a Partner</a></li>
+              <li><a className="hover:text-rainbow-indigo transition-colors duration-300" href="#">MSPs</a></li>
             </ul>
           </div>
         </div>
@@ -61,49 +69,61 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Customers</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><a className="hover:text-foreground" href="#">Customer Portal</a></li>
-              <li><a className="hover:text-foreground" href="#">Customer Training</a></li>
-              <li><a className="hover:text-foreground" href="#">Renew License</a></li>
-              <li><a className="hover:text-foreground" href="#">Professional Services</a></li>
-              <li><a className="hover:text-foreground" href="#">Support</a></li>
-              <li><a className="hover:text-foreground" href="#">Knowledge Center</a></li>
+              {[
+                { text: "Customer Portal", color: "hover:text-rainbow-violet" },
+                { text: "Customer Training", color: "hover:text-rainbow-red" },
+                { text: "Renew License", color: "hover:text-rainbow-orange" },
+                { text: "Professional Services", color: "hover:text-rainbow-yellow" },
+                { text: "Support", color: "hover:text-rainbow-green" },
+                { text: "Knowledge Center", color: "hover:text-rainbow-blue" },
+              ].map((item, idx) => (
+                <li key={idx}><a className={`transition-colors duration-300 ${item.color}`} href="#">{item.text}</a></li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Why Netwrix</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><a className="hover:text-foreground" href="#">About Us</a></li>
-              <li><a className="hover:text-foreground" href="#">Leadership</a></li>
-              <li><a className="hover:text-foreground" href="#">Netwrix AI</a></li>
-              <li><a className="hover:text-foreground" href="#">Careers</a></li>
-              <li><a className="hover:text-foreground" href="#">News</a></li>
-              <li><a className="hover:text-foreground" href="#">Recognition</a></li>
+              {[
+                { text: "About Us", color: "hover:text-rainbow-indigo" },
+                { text: "Leadership", color: "hover:text-rainbow-violet" },
+                { text: "Bunifu AI", color: "hover:text-rainbow-red" },
+                { text: "Careers", color: "hover:text-rainbow-orange" },
+                { text: "News", color: "hover:text-rainbow-yellow" },
+                { text: "Recognition", color: "hover:text-rainbow-green" },
+              ].map((item, idx) => (
+                <li key={idx}><a className={`transition-colors duration-300 ${item.color}`} href="#">{item.text}</a></li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Compliance</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><a className="hover:text-foreground" href="#">CMMC</a></li>
-              <li><a className="hover:text-foreground" href="#">ISO</a></li>
-              <li><a className="hover:text-foreground" href="#">HIPAA</a></li>
-              <li><a className="hover:text-foreground" href="#">NIST CSF</a></li>
-              <li><a className="hover:text-foreground" href="#">PCI DSS</a></li>
-              <li><a className="hover:text-foreground" href="#">TISAX</a></li>
+              {[
+                { text: "CMMC", color: "hover:text-rainbow-blue" },
+                { text: "ISO", color: "hover:text-rainbow-indigo" },
+                { text: "HIPAA", color: "hover:text-rainbow-violet" },
+                { text: "NIST CSF", color: "hover:text-rainbow-red" },
+                { text: "PCI DSS", color: "hover:text-rainbow-orange" },
+                { text: "TISAX", color: "hover:text-rainbow-yellow" },
+              ].map((item, idx) => (
+                <li key={idx}><a className={`transition-colors duration-300 ${item.color}`} href="#">{item.text}</a></li>
+              ))}
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <div className="text-2xl font-semibold tracking-tight mb-2">netwrix</div>
+            <div className="text-2xl font-semibold tracking-tight mb-2 rainbow-hover">Bunifu Capital</div>
             <p className="text-sm text-foreground/60">
               Corporate Headquarters: 6160 Warren Parkway, Suite 100, Frisco, TX, US 75034
             </p>
           </div>
           <p className="text-sm text-foreground/60">
-            © {new Date().getFullYear()} Netwrix Corporation
+            © {new Date().getFullYear()} Bunifu Capital Corporation
           </p>
         </div>
       </div>

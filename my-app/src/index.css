@@ -4,71 +4,90 @@
 
 @layer base {
   :root {
-    /* Netwrix homepage (warm white + indigo accent) */
-    --background: 40 33% 97%;
+    /* Vibrant Rainbow Color Palette - Creative Industry Theme */
+    --background: 0 0% 98%;
     --foreground: 240 10% 10%;
 
-    --card: 40 33% 97%;
+    --card: 0 0% 100%;
     --card-foreground: 240 10% 10%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 10%;
 
-    /* Base ink + accent */
-    --primary: 240 10% 10%;
+    /* Primary uses vibrant blue */
+    --primary: 240 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 240 10% 10%;
+    --secondary: 300 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 40 18% 92%;
+    --muted: 60 20% 95%;
     --muted-foreground: 240 4% 35%;
 
-    --accent: 247 84% 60%;
+    /* Accent uses vibrant gradient - starting with red */
+    --accent: 0 100% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* darker, more "drawn" section lines */
-    --border: 240 6% 68%;
-    --input: 240 6% 68%;
-    --ring: 247 84% 60%;
+    /* Rainbow border colors */
+    --border: 300 50% 80%;
+    --input: 300 50% 80%;
+    --ring: 0 100% 50%;
 
-    --navy: 235 40% 16%;
+    --navy: 240 100% 20%;
     --radius: 0.8rem;
+
+    /* Rainbow Colors - 7 colors */
+    --rainbow-red: 0 100% 50%;
+    --rainbow-orange: 30 100% 50%;
+    --rainbow-yellow: 60 100% 50%;
+    --rainbow-green: 120 100% 50%;
+    --rainbow-blue: 240 100% 50%;
+    --rainbow-indigo: 270 100% 50%;
+    --rainbow-violet: 300 100% 50%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 240 20% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 15% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 15% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 240 100% 70%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 300 100% 70%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 10% 20%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 100% 60%;
+    --accent-foreground: 0 0% 10%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 300 50% 30%;
+    --input: 300 50% 30%;
+    --ring: 0 100% 60%;
 
-    --navy: 214 75% 12%;
+    --navy: 240 100% 30%;
+
+    /* Rainbow Colors - brighter for dark mode */
+    --rainbow-red: 0 100% 60%;
+    --rainbow-orange: 30 100% 60%;
+    --rainbow-yellow: 60 100% 60%;
+    --rainbow-green: 120 100% 60%;
+    --rainbow-blue: 240 100% 70%;
+    --rainbow-indigo: 270 100% 60%;
+    --rainbow-violet: 300 100% 60%;
   }
 
   * {
@@ -234,15 +253,126 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-accent to-navy bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[hsl(var(--rainbow-red))] via-[hsl(var(--rainbow-orange))] via-[hsl(var(--rainbow-yellow))] via-[hsl(var(--rainbow-green))] via-[hsl(var(--rainbow-blue))] via-[hsl(var(--rainbow-indigo))] to-[hsl(var(--rainbow-violet))] bg-clip-text text-transparent;
   }
 
   .hero-gradient {
     background-image: linear-gradient(
-      315deg,
-      rgb(65, 242, 124) 0%,
-      rgb(88, 81, 219) 100%
+      135deg,
+      hsl(var(--rainbow-red)) 0%,
+      hsl(var(--rainbow-orange)) 14%,
+      hsl(var(--rainbow-yellow)) 28%,
+      hsl(var(--rainbow-green)) 42%,
+      hsl(var(--rainbow-blue)) 57%,
+      hsl(var(--rainbow-indigo)) 71%,
+      hsl(var(--rainbow-violet)) 85%,
+      hsl(var(--rainbow-red)) 100%
     );
+    background-size: 200% 200%;
+    animation: rainbowShift 8s ease infinite;
+  }
+
+  @keyframes rainbowShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Rainbow hover effects */
+  .rainbow-hover {
+    transition: all 0.3s ease;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--rainbow-red)) 0%,
+      hsl(var(--rainbow-orange)) 16%,
+      hsl(var(--rainbow-yellow)) 33%,
+      hsl(var(--rainbow-green)) 50%,
+      hsl(var(--rainbow-blue)) 66%,
+      hsl(var(--rainbow-indigo)) 83%,
+      hsl(var(--rainbow-violet)) 100%
+    );
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .rainbow-hover:hover {
+    animation: rainbowShift 2s ease infinite;
+    filter: brightness(1.2);
+  }
+
+  /* Rainbow border gradient */
+  .rainbow-border {
+    position: relative;
+    background: hsl(var(--background));
+    border-radius: var(--radius);
+  }
+
+  .rainbow-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius) + 2px);
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--rainbow-red)),
+      hsl(var(--rainbow-orange)),
+      hsl(var(--rainbow-yellow)),
+      hsl(var(--rainbow-green)),
+      hsl(var(--rainbow-blue)),
+      hsl(var(--rainbow-indigo)),
+      hsl(var(--rainbow-violet))
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .rainbow-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Rainbow glow effect */
+  .rainbow-glow {
+    box-shadow: 
+      0 0 20px hsl(var(--rainbow-red) / 0.3),
+      0 0 40px hsl(var(--rainbow-orange) / 0.2),
+      0 0 60px hsl(var(--rainbow-yellow) / 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .rainbow-glow:hover {
+    box-shadow: 
+      0 0 30px hsl(var(--rainbow-red) / 0.5),
+      0 0 60px hsl(var(--rainbow-orange) / 0.4),
+      0 0 90px hsl(var(--rainbow-yellow) / 0.3),
+      0 0 120px hsl(var(--rainbow-green) / 0.2);
+  }
+
+  /* Background rainbow that comes alive on hover */
+  .rainbow-hover-bg {
+    background-size: 200% 200%;
+    transition:
+      background-position 600ms ease,
+      transform 600ms ease,
+      box-shadow 400ms ease;
+  }
+
+  .rainbow-hover-bg:hover {
+    animation: rainbowShift 6s ease-in-out infinite;
+    box-shadow:
+      0 0 24px hsl(var(--rainbow-red) / 0.25),
+      0 0 40px hsl(var(--rainbow-blue) / 0.2);
   }
 
   .nav-link {
@@ -264,5 +394,69 @@
 
   .nav-link:hover::after {
     transform: scaleX(1);
+  }
+
+  /* Additional rainbow effects */
+  .rainbow-text-rotate {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--rainbow-red)),
+      hsl(var(--rainbow-orange)),
+      hsl(var(--rainbow-yellow)),
+      hsl(var(--rainbow-green)),
+      hsl(var(--rainbow-blue)),
+      hsl(var(--rainbow-indigo)),
+      hsl(var(--rainbow-violet)),
+      hsl(var(--rainbow-red))
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowShift 3s linear infinite;
+  }
+
+  /* Rainbow border animation */
+  @keyframes rainbowBorder {
+    0% {
+      border-color: hsl(var(--rainbow-red));
+    }
+    14% {
+      border-color: hsl(var(--rainbow-orange));
+    }
+    28% {
+      border-color: hsl(var(--rainbow-yellow));
+    }
+    42% {
+      border-color: hsl(var(--rainbow-green));
+    }
+    57% {
+      border-color: hsl(var(--rainbow-blue));
+    }
+    71% {
+      border-color: hsl(var(--rainbow-indigo));
+    }
+    85% {
+      border-color: hsl(var(--rainbow-violet));
+    }
+    100% {
+      border-color: hsl(var(--rainbow-red));
+    }
+  }
+
+  .rainbow-border-animated {
+    animation: rainbowBorder 3s linear infinite;
+  }
+
+  /* Hover scale with rainbow glow */
+  .rainbow-hover-scale {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .rainbow-hover-scale:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px hsl(var(--rainbow-red) / 0.5))
+            drop-shadow(0 0 12px hsl(var(--rainbow-blue) / 0.3))
+            drop-shadow(0 0 16px hsl(var(--rainbow-violet) / 0.2));
   }
 }

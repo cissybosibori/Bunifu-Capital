@@ -9,20 +9,20 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        // Netwrix specific variants
-        cta: "rounded-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-rainbow-blue/30",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-lg hover:shadow-rainbow-red/30",
+        outline: "border-2 border-rainbow-violet/30 bg-background hover:bg-rainbow-gradient hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-rainbow-violet/30",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-lg hover:shadow-rainbow-violet/30",
+        ghost: "hover:bg-rainbow-gradient hover:text-white hover:shadow-lg hover:shadow-rainbow-indigo/30",
+        link: "text-primary underline-offset-4 hover:underline hover:text-rainbow-blue",
+        // Vibrant rainbow variants
+        cta: "rounded-full bg-rainbow-gradient bg-[length:200%_200%] text-white font-semibold hover:animate-rainbow-shift hover:shadow-lg hover:shadow-rainbow-red/40 hover:scale-105",
         ctaOutline:
-          "rounded-full border border-foreground/30 bg-transparent text-foreground hover:bg-foreground/5 font-semibold",
-        hero: "rounded-full bg-accent text-accent-foreground font-semibold px-8 py-3 hover:bg-accent/90",
+          "rounded-full border-2 border-rainbow-gradient bg-transparent text-foreground font-semibold hover:bg-rainbow-gradient hover:text-white hover:shadow-lg hover:shadow-rainbow-orange/30 hover:scale-105",
+        hero: "rounded-full bg-rainbow-gradient bg-[length:200%_200%] text-white font-semibold px-8 py-3 hover:animate-rainbow-shift hover:shadow-xl hover:shadow-rainbow-yellow/40 hover:scale-105",
         heroOutline:
-          "rounded-full border border-foreground/30 bg-transparent text-foreground font-semibold px-8 py-3 hover:bg-foreground/5",
-        navCta: "rounded-full bg-accent text-accent-foreground font-semibold hover:bg-accent/90",
+          "rounded-full border-2 border-rainbow-gradient bg-transparent text-foreground font-semibold px-8 py-3 hover:bg-rainbow-gradient hover:text-white hover:shadow-xl hover:shadow-rainbow-green/30 hover:scale-105",
+        navCta: "rounded-full bg-rainbow-gradient bg-[length:200%_200%] text-white font-semibold hover:animate-rainbow-shift hover:shadow-lg hover:shadow-rainbow-blue/40 hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",

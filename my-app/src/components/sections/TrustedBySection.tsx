@@ -1,47 +1,58 @@
 import { motion } from "framer-motion";
+import { Building2 } from "lucide-react";
 
-const logos = [
-  { name: "Samsung", url: "https://cdn.sanity.io/images/r09655ln/production/fdea939690b7d45d191565dabec450445afb29a4-200x100.webp" },
-  { name: "IBM", url: "https://cdn.sanity.io/images/r09655ln/production/2d3e2da4774ece31137ed6df9e2fd6af1199d073-180x100.webp" },
-  { name: "UCLA", url: "https://cdn.sanity.io/images/r09655ln/production/c3d898b2b63cef9bc94471869537e19f5ac0f5de-275x100.webp" },
-  { name: "JetBlue", url: "https://cdn.sanity.io/images/r09655ln/production/5f8a8872af33fa90481897f62e739aef7c655826-197x100.webp" },
-  { name: "Uber Freight", url: "https://cdn.sanity.io/images/r09655ln/production/f535f1126b8dbed9dd2457901159003a6a93e1fd-291x100.webp" },
-  { name: "US Marine Corps", url: "https://cdn.sanity.io/images/r09655ln/production/4a382767fed7cfbe110c2d4a5872b954e7feff4a-102x100.webp" },
-  { name: "Veterans Affairs", url: "https://cdn.sanity.io/images/r09655ln/production/b83a862f428ef3fc189af09f80cc050192f0aeb8-300x100.webp" },
-  { name: "King's Hawaiian", url: "https://cdn.sanity.io/images/r09655ln/production/2bb3f7b056f68a061c9d7a6b4cc3ef8d38e2adf2-154x100.webp" },
+const platforms = [
+  { name: "TikTok", logo: "https://logos-world.net/wp-content/uploads/2021/04/TikTok-Logo.png" },
+  { name: "Instagram", logo: "https://logos-world.net/wp-content/uploads/2017/04/Instagram-Logo.png" },
+  { name: "YouTube", logo: "https://logos-world.net/wp-content/uploads/2020/04/YouTube-Logo.png" },
+  { name: "Spotify", logo: "https://logos-world.net/wp-content/uploads/2020/09/Spotify-Logo.png" },
+  { name: "M-Pesa", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/2560px-M-PESA_LOGO-01.svg.png" },
+  { name: "Shopify", logo: "https://logos-world.net/wp-content/uploads/2020/11/Shopify-Logo.png" },
+  { name: "Bank", isIcon: true },
 ];
 
 export function TrustedBySection() {
   return (
     <section className="netwrix-section border-b border-border bg-background">
-      <div className="container mx-auto px-4">
-        <a href="#" className="block py-10 lg:py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.45 }}
-            className="flex flex-col items-center gap-4"
-          >
-            <span className="text-accent font-medium">Read their Stories</span>
-            <div className="flex items-center gap-3 text-muted-foreground">
-              <span>Trusted by</span>
-            </div>
+      <div className="container mx-auto px-4 py-10 lg:py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.45 }}
+          className="flex flex-col items-center gap-6"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+            Creative income lives across{" "}
+            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">platforms</span>
+          </h2>
 
-            <div className="relative w-full overflow-hidden">
-              <div className="flex items-center gap-10 logo-scroll">
-                {[...logos, ...logos].map((logo, index) => (
-                  <div
-                    key={`${logo.name}-${index}`}
-                    className="flex-shrink-0 h-10 w-32 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300"
-                  >
-                    <img src={logo.url} alt={logo.name} className="max-h-full max-w-full object-contain grayscale" />
-                  </div>
-                ))}
-              </div>
+          <div className="relative w-full overflow-hidden mt-4">
+            <div className="flex items-center gap-10 logo-scroll">
+              {[...platforms, ...platforms].map((platform, index) => (
+                <div
+                  key={`${platform.name}-${index}`}
+                  className="flex-shrink-0 h-12 w-32 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300"
+                >
+                  {platform.isIcon ? (
+                    <Building2 className="h-10 w-10 text-foreground/60" />
+                  ) : (
+                    <img 
+                      src={platform.logo} 
+                      alt={platform.name} 
+                      className="max-h-full max-w-full object-contain" 
+                    />
+                  )}
+                </div>
+              ))}
             </div>
-          </motion.div>
-        </a>
+          </div>
+
+          <p className="text-lg text-foreground/70 text-center max-w-2xl mt-6">
+            Bunifu Capital connects to those platforms. Data is unified into one{" "}
+            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-semibold">financial profile</span>.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

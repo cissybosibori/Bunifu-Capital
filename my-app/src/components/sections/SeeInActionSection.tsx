@@ -13,12 +13,9 @@ export function SeeInActionSection() {
           className="min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center text-center"
         >
           <h2 className="text-5xl md:text-7xl font-semibold tracking-tight mb-10">
-            See Netwrix in action
+            See Bunifu Capital in action
           </h2>
-          <Button
-            size="lg"
-            className="rounded-full bg-white text-foreground hover:bg-white/90 border border-white/10"
-          >
+          <Button size="lg" className="rounded-full bg-white text-foreground hover:bg-white/90 border border-white/10">
             Get a demo
           </Button>
         </motion.div>

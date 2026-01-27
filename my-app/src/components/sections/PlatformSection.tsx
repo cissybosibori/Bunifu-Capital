@@ -3,32 +3,32 @@ import { Button } from "@/components/ui/button";
 
 const modules = [
   {
-    color: "bg-emerald-400",
+    color: "bg-rainbow-red",
     title: "Data Security Posture Management",
     description: "Discover and classify data in hybrid environments. Assess, prioritize, and mitigate risks to sensitive data.",
   },
   {
-    color: "bg-violet-400",
+    color: "bg-rainbow-orange",
     title: "Directory Management",
     description: "Simplify and secure directory operations by cutting down on complexity, risk, and manual effort.",
   },
   {
-    color: "bg-sky-400",
+    color: "bg-rainbow-yellow",
     title: "Endpoint Management",
     description: "Secure endpoints and prevent data loss while keeping teams productive — no matter where they work.",
   },
   {
-    color: "bg-lime-400",
+    color: "bg-rainbow-green",
     title: "Identity Management",
     description: "Secure every identity, streamline every process, and stay ahead of compliance — without adding complexity.",
   },
   {
-    color: "bg-yellow-400",
+    color: "bg-rainbow-blue",
     title: "Identity Threat Detection & Response",
     description: "Stay ahead of identity-based threats — proactively remediate risks, block attacks, and ensure rapid recovery.",
   },
   {
-    color: "bg-orange-400",
+    color: "bg-rainbow-indigo",
     title: "Privileged Access Management",
     description: "Shrink your attack surface by killing standing privileges, locking down credentials, and monitoring privileged sessions.",
   },
@@ -97,13 +97,13 @@ export function PlatformSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.35, delay: idx * 0.03 }}
-              className={`grid md:grid-cols-2 gap-6 px-6 py-8 bg-background ${idx === 0 ? "" : "border-t border-border"}`}
+              className={`grid md:grid-cols-2 gap-6 px-6 py-8 bg-background ${idx === 0 ? "" : "border-t border-border"} transition-all duration-300 group hover:shadow-lg hover:shadow-rainbow-blue/10`}
             >
               <div className="flex items-start gap-4">
-                <span className={`mt-2 h-3 w-3 ${m.color}`} aria-hidden="true" />
-                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">{m.title}</h3>
+                <span className={`mt-2 h-3 w-3 ${m.color} rounded-full shadow-lg group-hover:scale-150 group-hover:shadow-xl transition-all duration-300`} aria-hidden="true" />
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-gradient group-hover:bg-rainbow-gradient group-hover:bg-[length:200%_200%] group-hover:animate-rainbow-shift group-hover:bg-clip-text group-hover:text-transparent">{m.title}</h3>
               </div>
-              <p className="text-foreground/70 text-base md:text-lg">{m.description}</p>
+              <p className="text-foreground/70 text-base md:text-lg group-hover:text-foreground/90 transition-colors duration-300">{m.description}</p>
             </motion.div>
           ))}
         </div>

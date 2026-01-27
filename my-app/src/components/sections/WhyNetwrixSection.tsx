@@ -3,24 +3,24 @@ import { Button } from "@/components/ui/button";
 
 const benefits = [
   {
-    color: "bg-emerald-400",
+    color: "bg-rainbow-red",
     title: "Unified security",
-    description: "Netwrix connects the dots between identity and data. Our unified platform gives you complete control over who has access to your data.",
+    description: "Bunifu Capital connects the dots between identity and data. Our unified platform gives you complete control over who has access to your data.",
   },
   {
-    color: "bg-yellow-400",
+    color: "bg-rainbow-orange",
     title: "Flexible deployment",
-    description: "Today's IT environments are complex. Netwrix provides flexible deployment options for hybrid tech stacks.",
+    description: "Today's IT environments are complex. Bunifu Capital provides flexible deployment options for hybrid tech stacks.",
   },
   {
-    color: "bg-sky-400",
+    color: "bg-rainbow-yellow",
     title: "Faster time to value",
     description: "Get up and running quickly, accelerate time-to-value, and reduce implementation costs.",
   },
   {
-    color: "bg-orange-400",
+    color: "bg-rainbow-green",
     title: "Total cost advantage",
-    description: "Netwrix software balances enterprise security with simplicity that helps organizations of all sizes achieve competitive TCOs.",
+    description: "Bunifu Capital software balances enterprise security with simplicity that helps organizations of all sizes achieve competitive TCOs.",
   },
 ];
 
@@ -38,9 +38,10 @@ export function WhyNetwrixSection() {
           transition={{ duration: 0.45 }}
           className="text-center mb-10 lg:mb-14"
         >
-          <p className="text-accent font-medium mb-3">Why Netwrix?</p>
+          <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Why Bunifu Capital?</p>
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight">
-            Identity and data security, unified
+            Identity and data security,{" "}
+            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">unified</span>
           </h2>
         </motion.div>
 
@@ -52,12 +53,12 @@ export function WhyNetwrixSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="flex gap-5"
+              className="flex gap-5 group hover:bg-gradient-to-r hover:from-rainbow-red/5 hover:to-transparent p-4 -m-4 rounded-lg transition-all duration-300"
             >
-              <span className={`mt-2 h-3 w-3 ${benefit.color}`} aria-hidden="true" />
+              <span className={`mt-2 h-3 w-3 ${benefit.color} rounded-full shadow-lg group-hover:scale-150 group-hover:shadow-xl transition-all duration-300`} aria-hidden="true" />
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{benefit.description}</p>
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-gradient group-hover:bg-rainbow-gradient group-hover:bg-[length:200%_200%] group-hover:animate-rainbow-shift group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">{benefit.title}</h3>
+                <p className="text-foreground/70 leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">{benefit.description}</p>
               </div>
             </motion.div>
           ))}

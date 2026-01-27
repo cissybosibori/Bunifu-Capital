@@ -22,10 +22,10 @@ export function StayUpdatedSection() {
             transition={{ duration: 0.45 }}
             className="p-8 md:p-10 border-b border-border md:border-b-0 md:border-r border-border"
           >
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-accent mb-2">
-              Stay updated.
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">
+              <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">Stay updated.</span>
             </h2>
-            <p className="text-foreground/70 mb-8">Get the latest Netwrix news and product updates</p>
+            <p className="text-foreground/70 mb-8">Get the latest Bunifu Capital news and product updates</p>
 
             <label className="block text-sm font-medium mb-2" htmlFor="work-email">
               Work Email*
@@ -35,14 +35,14 @@ export function StayUpdatedSection() {
                 id="work-email"
                 type="email"
                 placeholder=""
-                className="w-full h-12 px-4 bg-transparent border border-accent focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full h-12 px-4 bg-transparent border-2 border-rainbow-violet/30 focus:outline-none focus:ring-2 focus:ring-rainbow-violet focus:border-rainbow-violet transition-all duration-300 hover:border-rainbow-gradient"
               />
               <button
                 type="button"
                 aria-label="Submit email"
-                className="h-12 w-12 flex items-center justify-center border border-border hover:bg-foreground/5"
+                className="h-12 w-12 flex items-center justify-center border-2 border-rainbow-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift hover:scale-110 hover:shadow-lg hover:shadow-rainbow-violet/30 transition-all duration-300"
               >
-                <ArrowRight className="h-5 w-5 text-accent" />
+                <ArrowRight className="h-5 w-5 text-white" />
               </button>
             </div>
 
@@ -65,16 +65,31 @@ export function StayUpdatedSection() {
           >
             <h3 className="text-xl font-semibold mb-6">Read top articles</h3>
             <div className="divide-y divide-border">
-              {topArticles.map((title) => (
-                <a
-                  key={title}
-                  href="#"
-                  className="article-link group flex items-center justify-between gap-4 py-4 px-2 -mx-2 text-foreground/80 hover:text-accent hover:bg-foreground/5"
-                >
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">{title}</span>
-                  <ChevronRight className="h-5 w-5 text-accent opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
-                </a>
-              ))}
+              {topArticles.map((title, index) => {
+                const rainbowColors = [
+                  'hover:text-rainbow-red',
+                  'hover:text-rainbow-orange',
+                  'hover:text-rainbow-yellow',
+                  'hover:text-rainbow-green',
+                  'hover:text-rainbow-blue',
+                ];
+                const hoverColor = rainbowColors[index % 5];
+                return (
+                  <a
+                    key={title}
+                    href="#"
+                    className={`article-link group flex items-center justify-between gap-4 py-4 px-2 -mx-2 text-foreground/80 ${hoverColor} hover:bg-gradient-to-r hover:from-rainbow-red/5 hover:to-transparent transition-all duration-300`}
+                  >
+                    <span className="transition-transform duration-200 group-hover:translate-x-1">{title}</span>
+                    <ChevronRight 
+                      className="h-5 w-5 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0"
+                      style={{
+                        color: `hsl(var(--rainbow-${index % 5 === 0 ? 'red' : index % 5 === 1 ? 'orange' : index % 5 === 2 ? 'yellow' : index % 5 === 3 ? 'green' : 'blue'}))`,
+                      }}
+                    />
+                  </a>
+                );
+              })}
             </div>
           </motion.div>
         </div>
