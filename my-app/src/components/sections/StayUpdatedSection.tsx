@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 const topArticles = [
   "Essential PowerShell Commands: A Cheat Sheet for Beginners",
@@ -69,9 +69,10 @@ export function StayUpdatedSection() {
                 <a
                   key={title}
                   href="#"
-                  className="block py-4 text-foreground/80 hover:text-foreground"
+                  className="article-link group flex items-center justify-between gap-4 py-4 px-2 -mx-2 text-foreground/80 hover:text-accent hover:bg-foreground/5"
                 >
-                  {title}
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">{title}</span>
+                  <ChevronRight className="h-5 w-5 text-accent opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
                 </a>
               ))}
             </div>

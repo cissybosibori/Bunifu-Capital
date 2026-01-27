@@ -26,8 +26,11 @@ const benefits = [
 
 export function WhyNetwrixSection() {
   return (
-    <section className="netwrix-section bg-background py-16 lg:py-24">
-      <div className="container mx-auto px-4">
+    <section className="netwrix-section bg-background py-16 lg:py-24 relative overflow-hidden">
+      {/* Full-section squares (bigger + darker like Netwrix) */}
+      <div className="pointer-events-none absolute inset-0 netwrix-grid-svg-black-lg opacity-[0.22]" />
+      <div className="pointer-events-none absolute right-0 top-0 h-[520px] w-[640px] bg-[radial-gradient(closest-side,rgba(88,81,219,0.16),rgba(88,81,219,0)_70%)] translate-x-44 -translate-y-24" />
+      <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}

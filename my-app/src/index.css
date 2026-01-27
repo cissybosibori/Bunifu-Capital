@@ -30,8 +30,9 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 240 6% 76%;
-    --input: 240 6% 76%;
+    /* darker, more "drawn" section lines */
+    --border: 240 6% 68%;
+    --input: 240 6% 68%;
     --ring: 247 84% 60%;
 
     --navy: 235 40% 16%;
@@ -104,12 +105,144 @@
     @apply border-t border-border;
   }
 
+  /* Page frame (vertical guide lines like Netwrix) */
+  .netwrix-page {
+    position: relative;
+  }
+  .netwrix-page::before,
+  .netwrix-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: hsl(var(--border));
+    pointer-events: none;
+  }
+  .netwrix-page::before {
+    left: 0;
+  }
+  .netwrix-page::after {
+    right: 0;
+  }
+
+  /* Square grids (used across hero / sections) */
+  .squares-sm {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .squares-md {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.10) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.10) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .squares-lg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+
+  /* Netwrix exact square assets */
+  .netwrix-grid-svg {
+    background-image: url("https://netwrix.com/background/Grid.svg");
+    background-repeat: repeat;
+    /* matches Netwrix computed style */
+    background-size: 740px 609px;
+  }
+
+  /* Render the Netwrix grid as “white” lines (for hero overlays) */
+  .netwrix-grid-svg-white {
+    background-image: url("https://netwrix.com/background/Grid.svg");
+    background-repeat: repeat;
+    background-size: 740px 609px;
+    mix-blend-mode: screen;
+    filter: brightness(1.55) contrast(1.25);
+  }
+
+  /* Bigger, darker grid (Why Netwrix “Learn more” area) */
+  .netwrix-grid-svg-black-lg {
+    background-image: url("https://netwrix.com/background/Grid.svg");
+    background-repeat: repeat;
+    /* same grid as hero, but slightly larger */
+    background-size: 860px 710px;
+    mix-blend-mode: multiply;
+    /* push lines towards true black */
+    filter: brightness(0.62) contrast(1.35);
+  }
+
+  .netwrix-grid-card {
+    background-image: url("https://netwrix.com/background/grid-card-f.svg");
+    /* positioned to show the visible grid corner */
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 520px 520px;
+  }
+
+  .netwrix-cta-bg {
+    background-image: url("https://netwrix.com/background/cta-f.webp");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  .netwrix-yellow-green {
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 198, 26) 11.4%,
+      rgb(65, 242, 124) 88.6%
+    );
+  }
+
+  /* Animated gradient fill (See Netwrix in action) */
+  .hero-gradient-animated {
+    background-size: 180% 180%;
+    animation: gradientShift 10s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Resource card hover (lift + subtle internal motion) */
+  .resource-card {
+    transition: transform 260ms ease, box-shadow 260ms ease, filter 260ms ease;
+    will-change: transform;
+  }
+  .resource-card:hover {
+    transform: translateY(-6px);
+    filter: saturate(1.06);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+  }
+
+  /* Article list hover (color shift + arrow slide) */
+  .article-link {
+    transition: color 180ms ease, background-color 180ms ease;
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-accent to-navy bg-clip-text text-transparent;
   }
 
   .hero-gradient {
-    @apply bg-gradient-to-r from-[#3fbf7b] via-[#1e2740] to-[#140f2e];
+    background-image: linear-gradient(
+      315deg,
+      rgb(65, 242, 124) 0%,
+      rgb(88, 81, 219) 100%
+    );
   }
 
   .nav-link {

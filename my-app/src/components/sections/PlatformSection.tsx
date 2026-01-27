@@ -47,11 +47,19 @@ export function PlatformSection() {
             className="order-2 lg:order-1"
           >
             <div className="rounded-2xl border border-border bg-white overflow-hidden">
-              <img
-                src="https://netwrix.com/images/img-desktop_4.webp"
-                alt="1Secure platform overview"
+              <video
                 className="w-full h-auto"
-              />
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <source
+                  src="https://cdn.sanity.io/files/r09655ln/production/efbcc92ad8c6d1e38881617b3b68660e5c64024b.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </div>
           </motion.div>
 

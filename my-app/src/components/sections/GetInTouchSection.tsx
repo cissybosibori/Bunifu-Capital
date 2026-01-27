@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function GetInTouchSection() {
   return (
-    <section className="netwrix-section bg-accent text-accent-foreground py-16 lg:py-24">
+    <section className="netwrix-section bg-accent netwrix-cta-bg text-accent-foreground py-16 lg:py-24 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 14 }}

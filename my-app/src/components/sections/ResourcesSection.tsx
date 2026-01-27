@@ -53,11 +53,18 @@ export function ResourcesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden border border-border bg-[#141129] text-white min-h-[340px] cursor-pointer"
+              className="group resource-card relative overflow-hidden border border-border bg-[#141129] text-white min-h-[340px] cursor-pointer"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${resource.gradient}`} />
-              <div className="absolute -bottom-10 -right-10 h-64 w-64 bg-[radial-gradient(circle,rgba(63,191,123,0.55),rgba(63,191,123,0)_65%)] opacity-70" />
-              <div className="absolute inset-0 bg-grid-pattern bg-[size:44px_44px] opacity-[0.12]" />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${resource.gradient} transition-transform duration-700 ease-out group-hover:scale-[1.06]`}
+              />
+              {/* Netwrix-style background artwork (grid + green accent lines) */}
+              <div className="pointer-events-none absolute inset-0">
+                <div className="absolute inset-0 netwrix-grid-card opacity-[0.28] invert mix-blend-screen transition-all duration-700 ease-out group-hover:opacity-[0.42] group-hover:-translate-x-2 group-hover:-translate-y-2" />
+                <div className="absolute right-10 top-0 bottom-0 w-[2px] bg-[linear-gradient(rgba(65,242,124,0)_39.58%,rgb(65,242,124)_96.82%)] opacity-[0.55]" />
+                <div className="absolute left-0 right-0 bottom-12 h-[2px] bg-[linear-gradient(90deg,rgba(65,242,124,0)_6.5%,rgb(65,242,124)_31.36%)] opacity-[0.55]" />
+                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+              </div>
 
               <div className="relative p-8 h-full flex flex-col">
                 <div className="flex items-center gap-2 text-emerald-300 text-sm font-medium mb-4">
@@ -69,13 +76,20 @@ export function ResourcesSection() {
                   {resource.title}
                 </h3>
 
-                <div className="mt-auto flex items-center gap-3 text-white/80">
-                  <div className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center text-xs">
-                    {resource.author.split(" ")[0].slice(0, 1)}
+                <div className="mt-auto flex items-center justify-between gap-6 text-white/80">
+                  <div className="flex items-center gap-3">
+                    <div className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center text-xs">
+                      {resource.author.split(" ")[0].slice(0, 1)}
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-white">{resource.author}</div>
+                      <div className="text-xs text-white/70">{resource.category}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-sm font-medium text-white">{resource.author}</div>
-                    <div className="text-xs text-white/70">{resource.category}</div>
+
+                  <div className="flex items-center gap-2 opacity-0 translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                    <span className="text-sm font-medium">Learn more</span>
+                    <ArrowRight className="h-4 w-4" />
                   </div>
                 </div>
               </div>

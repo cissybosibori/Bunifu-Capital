@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -43,9 +44,19 @@ const testimonials = [
 
 export function TestimonialsSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "start 0.35"],
+  });
+  const fadeIn = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section className="netwrix-section py-16 lg:py-24 bg-background">
+    <motion.section
+      ref={sectionRef}
+      style={{ opacity: fadeIn }}
+      className="netwrix-section py-16 lg:py-24 bg-background"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,6 +123,6 @@ export function TestimonialsSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
