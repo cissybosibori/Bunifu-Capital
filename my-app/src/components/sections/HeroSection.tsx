@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { HeroDashboardMain } from "./HeroDashboardMain";
@@ -59,16 +60,18 @@ export function HeroSection() {
             </h1>
             
             <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0">
-              Creatives earn from fragmented income streams. Financial institutions struggle to assess that income. Bunifu Capital standardizes, analyzes, and translates creative income into financial signals for credit, loans, and investment decisions.
+              Bunifu Capital is building infrastructure to connect creative income with capital. We standardize, analyze, and translate fragmented creative income into financial signals that banks, lenders, and investors can understand and trust.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg">
-                Get a demo
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/#waitlist">Join the waitlist</Link>
               </Button>
-              <Button variant="heroOutline" size="lg" className="group">
-                Learn more
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Button variant="heroOutline" size="lg" className="group" asChild>
+                <Link to="/financial-institutions">
+                  Book a demo
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </div>
           </motion.div>

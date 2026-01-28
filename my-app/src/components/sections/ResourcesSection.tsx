@@ -4,26 +4,26 @@ import { Button } from "@/components/ui/button";
 
 const resources = [
   {
-    type: "Upcoming Webinar",
+    type: "Article",
     icon: Calendar,
-    title: "Securing Data in the Age of AI with DSPM",
-    author: "Martin Cannard",
-    category: "Data Security Posture Management",
+    title: "Understanding the Creative Economy: Size, Scale, and Opportunity",
+    author: "Bunifu Capital Research",
+    category: "Creative Economy",
     gradient: "from-rainbow-red via-rainbow-orange to-rainbow-yellow",
   },
   {
-    type: "Podcasts",
+    type: "Thought Piece",
     icon: Mic,
-    title: "Voices of Cyber Asia: Episode 4- Why Visibility Comes First",
-    author: "Terry Burgess, Anthony Moillic",
-    category: "Security Insights",
+    title: "Why Creative Income Doesn't Fit Traditional Financial Models",
+    author: "Bunifu Capital",
+    category: "Finance & Creativity",
     gradient: "from-rainbow-blue via-rainbow-indigo to-rainbow-violet",
   },
 ];
 
 export function ResourcesSection() {
   return (
-    <section className="netwrix-section py-16 lg:py-24 bg-background">
+    <section id="resources" className="netwrix-section py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,11 +33,14 @@ export function ResourcesSection() {
           className="grid lg:grid-cols-2 gap-10 items-start mb-12"
         >
           <div>
-            <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Featured resources</p>
+            <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Resources</p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-              Geek out with <br className="hidden md:block" />
-              <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">us</span>
+              Learn about the{" "}
+              <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">creative economy</span>
             </h2>
+            <p className="text-lg text-foreground/70 mt-4">
+              Articles, research, and educational content about the creative economy, finance, and how we're building infrastructure to connect them.
+            </p>
             <Button variant="ctaOutline" size="lg" className="mt-7 group">
               Resource center
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

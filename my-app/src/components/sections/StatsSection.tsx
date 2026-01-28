@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "13k+", label: "organizations turn to us for their security needs", color: "rainbow-red" },
-  { value: "120+", label: "Fortune 500 companies rely on our solutions", color: "rainbow-orange" },
-  { value: "95%", label: "customer satisfaction rating from our clients", color: "rainbow-yellow" },
-  { value: "#1", label: "to market with AI MCP server integration", color: "rainbow-green" },
+  { value: "$2.25T", label: "global creative economy value, yet creatives remain underfunded", color: "rainbow-red" },
+  { value: "70%", label: "of creatives report difficulty accessing credit and loans", color: "rainbow-orange" },
+  { value: "6.1%", label: "contribution to global GDP from creative industries", color: "rainbow-yellow" },
+  { value: "$50B+", label: "funding gap between value created and capital accessed", color: "rainbow-green" },
 ];
 
 export function StatsSection() {
@@ -18,11 +18,14 @@ export function StatsSection() {
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45 }}
           >
-            <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Stats</p>
+            <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">The creative economy</p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-              Our numbers speak for{" "}
-              <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">themselves</span>
+              Massive value.{" "}
+              <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">Limited access.</span>
             </h2>
+            <p className="text-lg text-foreground/70 mt-4">
+              The creative economy creates enormous value, but traditional financial systems struggle to understand creative income. This gap represents both a problem and an opportunity.
+            </p>
           </motion.div>
 
           <div className="border border-border">

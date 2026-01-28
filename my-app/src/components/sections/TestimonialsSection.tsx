@@ -5,40 +5,28 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "We don't like vendors; we like partnerships. Netwrix has virtually become part of our staff.",
-    author: "John Adams",
-    role: "IT Director",
-    company: "Washington County, Arkansas",
+    quote: "The creative economy represents one of the largest untapped markets for financial services. Bunifu Capital is building the infrastructure needed to unlock this potential.",
+    author: "Advisor",
+    role: "Financial Technology",
+    company: "Early Supporter",
   },
   {
-    quote: "I hope Netwrix never changes their support - you guys are top notch!",
-    author: "Michael Nedbal",
-    role: "VP Operations",
-    company: "Makai Ocean Engineering, Inc.",
+    quote: "Creative income is real income, but it doesn't fit traditional financial models. This platform addresses a fundamental gap in how we understand and value creative work.",
+    author: "Partner",
+    role: "Creative Economy",
+    company: "Ecosystem Voice",
   },
   {
-    quote: "Netwrix is a great company. They stand behind their products and provide great support and customer service.",
-    author: "Anonymous",
-    role: "IT Assistant Manager",
-    company: "Healthcare/biotech",
+    quote: "The scale of the creative economy is massive, but access to capital remains limited. Infrastructure like this is essential for bridging that gap.",
+    author: "Investor",
+    role: "Fintech & Impact",
+    company: "Early Supporter",
   },
   {
-    quote: "I foresee a long business relationship with Netwrix based on support's knowledge, expertise, and especially their follow-up to make sure the issue was resolved.",
-    author: "Jim Stanton",
-    role: "Information Technology Manager",
-    company: "Palmdale Water District",
-  },
-  {
-    quote: "10 out of 10 - prompt response and very satisfied.",
-    author: "Andrew Warby",
-    role: "Senior Network Admin",
-    company: "CRA International",
-  },
-  {
-    quote: "The customer support is just great. Netwrix is not a company that just wants to sell you a solution and go on to the next client.",
-    author: "Vladimir Svidesskis",
-    role: "Information Security Director",
-    company: "The Georgia Lottery Corporation",
+    quote: "Banks need better ways to assess creative income. This approach of standardizing and analyzing fragmented income streams makes sense for both creatives and financial institutions.",
+    author: "Partner",
+    role: "Banking Innovation",
+    company: "Financial Services",
   },
 ];
 
@@ -65,11 +53,14 @@ export function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Trusted by professionals</p>
+          <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Early supporters</p>
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-2">
-            Don't just take our{" "}
-            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">word for it</span>
+            Building with{" "}
+            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">partners</span>
           </h2>
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto mt-4">
+            We're working with advisors, partners, and early supporters who see the potential in connecting creative income with capital. Their perspectives shape what we're building.
+          </p>
         </motion.div>
 
         <div className="flex items-center justify-between mb-6">
@@ -92,7 +83,7 @@ export function TestimonialsSection() {
             </button>
           </div>
           <a href="#" className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium hover:underline underline-offset-4 transition-all duration-300">
-            See All Customer Stories →
+            Learn about partnerships →
           </a>
         </div>
 

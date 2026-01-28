@@ -1,36 +1,36 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const modules = [
+const features = [
   {
     color: "bg-rainbow-red",
-    title: "Data Security Posture Management",
-    description: "Discover and classify data in hybrid environments. Assess, prioritize, and mitigate risks to sensitive data.",
+    title: "Creative-specific credit scores",
+    description: "Financial signals and risk scores designed for creative income patterns, not traditional employment. Understand your creditworthiness in terms that reflect how you actually earn.",
   },
   {
     color: "bg-rainbow-orange",
-    title: "Directory Management",
-    description: "Simplify and secure directory operations by cutting down on complexity, risk, and manual effort.",
+    title: "Financial analytics tailored to you",
+    description: "Income analysis, stability indicators, and growth projections built specifically for fragmented creative income streams. See your financial health clearly.",
   },
   {
     color: "bg-rainbow-yellow",
-    title: "Endpoint Management",
-    description: "Secure endpoints and prevent data loss while keeping teams productive — no matter where they work.",
+    title: "Market and peer comparisons",
+    description: "Compare yourself to peers in your industry and location. A musician in Kenya sees comparisons to other musicians in Kenya, not generic benchmarks.",
   },
   {
     color: "bg-rainbow-green",
-    title: "Identity Management",
-    description: "Secure every identity, streamline every process, and stay ahead of compliance — without adding complexity.",
+    title: "Risk and stability indicators",
+    description: "Understand your income consistency, growth trends, and financial stability. See what financial institutions see when they evaluate your profile.",
   },
   {
     color: "bg-rainbow-blue",
-    title: "Identity Threat Detection & Response",
-    description: "Stay ahead of identity-based threats — proactively remediate risks, block attacks, and ensure rapid recovery.",
+    title: "Standardized reports for funding",
+    description: "Generate professional reports ready for loan applications, investment pitches, and funding requests. All your financial data, formatted correctly.",
   },
   {
     color: "bg-rainbow-indigo",
-    title: "Privileged Access Management",
-    description: "Shrink your attack surface by killing standing privileges, locking down credentials, and monitoring privileged sessions.",
+    title: "Secure data handling and privacy",
+    description: "Your data is encrypted, secure, and private. You control what's shared and with whom. Built with security and privacy as core principles from day one.",
   },
 ];
 
@@ -70,27 +70,28 @@ export function PlatformSection() {
             viewport={{ once: true, amount: 0.35 }}
             className="order-1 lg:order-2"
           >
-            <p className="text-sm font-medium text-muted-foreground mb-3">The Netwrix 1Secure™ Platform</p>
+            <p className="text-sm font-medium text-muted-foreground mb-3">How the app works</p>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-5">
-              One platform. <br />
-              1Secure™.
+              From fragmented income{" "}
+              <br />
+              to <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">financial clarity</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-xl mb-7">
-              Meet 1Secure, the first platform to unify data and identity security. Ditch the siloed tools and secure your identities, strengthen data protection, and simplify compliance — all from one platform.
+              Creatives connect their income sources. Our AI analyzes income and activity data over time, learning behavior, consistency, and patterns. You receive financial analytics, market comparisons, risk scores, and credit-related signals that banks, lenders, and partners can understand.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button variant="cta" size="lg">
-                Explore
+                Join the waitlist
               </Button>
               <Button variant="ctaOutline" size="lg">
-                Learn more
+                Book a demo
               </Button>
             </div>
           </motion.div>
         </div>
 
         <div className="mt-14 lg:mt-16 border border-border">
-          {modules.map((m, idx) => (
+          {features.map((m, idx) => (
             <motion.div
               key={m.title}
               initial={{ opacity: 0, y: 10 }}

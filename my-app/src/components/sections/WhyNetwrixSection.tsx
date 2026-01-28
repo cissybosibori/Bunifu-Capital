@@ -4,23 +4,33 @@ import { Button } from "@/components/ui/button";
 const benefits = [
   {
     color: "bg-rainbow-red",
-    title: "Unified security",
-    description: "Bunifu Capital connects the dots between identity and data. Our unified platform gives you complete control over who has access to your data.",
+    title: "All creative financial data in one place",
+    description: "Connect income sources across platforms. See your complete financial picture in one unified profile that reflects how creatives actually earn.",
   },
   {
     color: "bg-rainbow-orange",
-    title: "Flexible deployment",
-    description: "Today's IT environments are complex. Bunifu Capital provides flexible deployment options for hybrid tech stacks.",
+    title: "Easier access to funding readiness",
+    description: "Transform fragmented income into standardized reports and financial signals that banks, lenders, and investors understand and trust.",
   },
   {
     color: "bg-rainbow-yellow",
-    title: "Faster time to value",
-    description: "Get up and running quickly, accelerate time-to-value, and reduce implementation costs.",
+    title: "Clear reporting and records",
+    description: "Generate professional financial analytics, risk scores, and market comparisons tailored to creative income patterns and your specific industry.",
   },
   {
     color: "bg-rainbow-green",
-    title: "Total cost advantage",
-    description: "Bunifu Capital software balances enterprise security with simplicity that helps organizations of all sizes achieve competitive TCOs.",
+    title: "Automation powered by AI",
+    description: "AI learns your income behavior and patterns over time, providing insights, predictions, and automated analysis without manual work.",
+  },
+  {
+    color: "bg-rainbow-blue",
+    title: "Security and privacy as core principles",
+    description: "Your data is encrypted, secure, and private. You control what's shared and with whom. Built with security from the ground up.",
+  },
+  {
+    color: "bg-rainbow-indigo",
+    title: "Built specifically for creative economies",
+    description: "Not adapted from traditional finance tools. Designed from day one to understand and represent creative income accurately.",
   },
 ];
 
@@ -40,8 +50,8 @@ export function WhyNetwrixSection() {
         >
           <p className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">Why Bunifu Capital?</p>
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight">
-            Identity and data security,{" "}
-            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">unified</span>
+            Infrastructure built for{" "}
+            <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">creative income</span>
           </h2>
         </motion.div>
 
@@ -64,9 +74,12 @@ export function WhyNetwrixSection() {
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 flex justify-center gap-4">
+          <Button variant="cta" size="lg">
+            Join the waitlist
+          </Button>
           <Button variant="ctaOutline" size="lg">
-            Learn more about us
+            Learn more
           </Button>
         </div>
       </div>

@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Search, User, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { label: "Platform", hasDropdown: true },
-  { label: "Solutions", hasDropdown: true },
-  { label: "Resources", hasDropdown: true },
-  { label: "Partners", hasDropdown: true },
-  { label: "Why Netwrix", hasDropdown: true },
-  { label: "Pricing", hasDropdown: false },
+  { label: "For Creatives", href: "/creatives", hasDropdown: false },
+  { label: "For Institutions", href: "/financial-institutions", hasDropdown: false },
+  { label: "Partnerships", href: "/partnerships", hasDropdown: false },
+  { label: "Resources", href: "/resources", hasDropdown: false },
+  { label: "Get involved", href: "/waitlist", hasDropdown: false },
 ];
 
 const BANNER_DISMISSED_KEY = "bunifu_report_banner_dismissed_v1";
@@ -69,22 +69,35 @@ export function Header() {
       <div className="bg-background border-b border-border">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center text-2xl font-semibold tracking-tight rainbow-hover">
+          <Link to="/" className="flex items-center text-2xl font-semibold tracking-tight rainbow-hover">
             Bunifu Capital
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href="#"
-                className="flex items-center gap-1 px-4 py-2 text-sm text-foreground/80 hover:text-foreground"
-              >
-                {item.label}
-                {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-              </a>
-            ))}
+            {navItems.map((item, index) => {
+              const rainbowColors = [
+                'hover:text-rainbow-red',
+                'hover:text-rainbow-orange',
+                'hover:text-rainbow-yellow',
+                'hover:text-rainbow-green',
+                'hover:text-rainbow-blue',
+                'hover:text-rainbow-indigo',
+                'hover:text-rainbow-violet',
+              ];
+              const hoverColor = rainbowColors[index % 7];
+              return (
+                <Link
+                  key={item.label}
+                  to={item.href || "#"}
+                  className={`flex items-center gap-1 px-4 py-2 text-sm text-foreground/80 ${hoverColor} transition-all duration-300 relative group`}
+                >
+                  {item.label}
+                  {item.hasDropdown && <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />}
+                  <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r ${index % 7 === 0 ? 'from-rainbow-red' : index % 7 === 1 ? 'from-rainbow-orange' : index % 7 === 2 ? 'from-rainbow-yellow' : index % 7 === 3 ? 'from-rainbow-green' : index % 7 === 4 ? 'from-rainbow-blue' : index % 7 === 5 ? 'from-rainbow-indigo' : 'from-rainbow-violet'} to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right side actions */}
@@ -95,8 +108,8 @@ export function Header() {
             <button className="p-2 rounded-full hover:bg-rainbow-blue/10 hover:text-rainbow-blue transition-all duration-300" aria-label="Account">
               <User className="w-5 h-5" />
             </button>
-            <Button variant="navCta" size="default">
-              Get a demo
+            <Button variant="navCta" size="default" asChild>
+              <Link to="/waitlist">Join waitlist</Link>
             </Button>
           </div>
 
@@ -134,18 +147,18 @@ export function Header() {
                 ];
                 const hoverColor = rainbowColors[index % 7];
                 return (
-                  <a
+                  <Link
                     key={item.label}
-                    href="#"
+                    to={item.href || "#"}
                     className={`flex items-center justify-between py-3 border-b border-border/50 text-foreground transition-all duration-300 ${hoverColor}`}
                   >
                     {item.label}
                     {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                  </a>
+                  </Link>
                 );
               })}
-              <Button variant="cta" className="mt-4 w-full">
-                Get a demo
+              <Button variant="cta" className="mt-4 w-full" asChild>
+                <Link to="/waitlist">Join waitlist</Link>
               </Button>
             </nav>
           </motion.div>
