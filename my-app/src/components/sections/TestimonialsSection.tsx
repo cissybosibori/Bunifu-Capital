@@ -43,7 +43,7 @@ export function TestimonialsSection() {
     <motion.section
       ref={sectionRef}
       style={{ opacity: fadeIn }}
-      className="netwrix-section py-16 lg:py-24 bg-background"
+      className="bunifu-section py-16 lg:py-24 bg-background"
     >
       <div className="container mx-auto px-4">
         <motion.div

@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustedBySection } from "@/components/sections/TrustedBySection";
 import { ProblemExplanationSection } from "@/components/sections/ProblemExplanationSection";
 import { PlatformSection } from "@/components/sections/PlatformSection";
-import { WhyNetwrixSection } from "@/components/sections/WhyNetwrixSection";
+import { WhyBunifuSection } from "@/components/sections/WhyBunifuSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -18,13 +18,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="netwrix-page">
+      <main className="bunifu-page">
         <HeroSection />
         <TrustedBySection />
         <ProblemExplanationSection />
         <PlatformSection />
         <HowItWorksSection />
-        <WhyNetwrixSection />
+        <WhyBunifuSection />
         <StatsSection />
         <TestimonialsSection />
         <SeeInActionSection />

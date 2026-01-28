@@ -45,7 +45,7 @@ const ResourcesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="netwrix-page">
+      <main className="bunifu-page">
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 bg-background border-b border-border">
           {/* Yellow/Green gradient theme */}
@@ -54,7 +54,7 @@ const ResourcesPage = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_92%_18%,hsl(var(--rainbow-green)/0.22),transparent_58%)]" />
             <div className="absolute -left-40 -bottom-44 h-[640px] w-[720px] bg-[radial-gradient(closest-side,hsl(var(--rainbow-yellow)/0.35),hsl(var(--rainbow-green)/0.25),transparent_72%)]" />
             <div className="absolute right-0 top-0 h-[540px] w-[620px] bg-[radial-gradient(closest-side,hsl(var(--rainbow-green)/0.28),hsl(var(--rainbow-yellow)/0.18),transparent_72%)] blur-3xl translate-x-40 -translate-y-28" />
-            <div className="absolute inset-0 netwrix-grid-svg-white opacity-[0.75]" />
+            <div className="absolute inset-0 bunifu-grid-svg-white opacity-[0.75]" />
           </div>
 
           <div className="container mx-auto px-4 relative">
@@ -77,8 +77,8 @@ const ResourcesPage = () => {
         </section>
 
         {/* Articles Section */}
-        <section className="netwrix-section bg-background py-16 lg:py-24 relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 netwrix-grid-svg-black-lg opacity-[0.15]" />
+        <section className="bunifu-section bg-background py-16 lg:py-24 relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bunifu-grid-svg-black-lg opacity-[0.15]" />
           <div className="container mx-auto px-4 relative">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -130,8 +130,8 @@ const ResourcesPage = () => {
         </section>
 
         {/* Community Sessions Section */}
-        <section className="netwrix-section bg-background py-16 lg:py-24 relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 netwrix-grid-svg-black-lg opacity-[0.15]" />
+        <section className="bunifu-section bg-background py-16 lg:py-24 relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bunifu-grid-svg-black-lg opacity-[0.15]" />
           <div className="container mx-auto px-4 relative">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -190,7 +190,7 @@ const ResourcesPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="netwrix-section bg-gradient-to-r from-[hsl(var(--rainbow-yellow))] via-[hsl(var(--rainbow-green))] to-[hsl(var(--rainbow-blue))] bg-[length:200%_200%] animate-rainbow-shift text-white py-16 lg:py-24 relative overflow-hidden group">
+        <section className="bunifu-section bg-gradient-to-r from-[hsl(var(--rainbow-yellow))] via-[hsl(var(--rainbow-green))] to-[hsl(var(--rainbow-blue))] bg-[length:200%_200%] animate-rainbow-shift text-white py-16 lg:py-24 relative overflow-hidden group">
           <div className="pointer-events-none absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--rainbow-yellow)/0.3),transparent_60%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--rainbow-green)/0.3),transparent_60%)]" />

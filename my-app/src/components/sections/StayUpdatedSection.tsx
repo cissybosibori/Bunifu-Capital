@@ -11,7 +11,7 @@ const topArticles = [
 
 export function StayUpdatedSection() {
   return (
-    <section className="netwrix-section bg-background py-16 lg:py-24">
+    <section className="bunifu-section bg-background py-16 lg:py-24">
       <div className="container mx-auto px-4">
         <div className="border border-border grid md:grid-cols-2">
           {/* Stay updated */}

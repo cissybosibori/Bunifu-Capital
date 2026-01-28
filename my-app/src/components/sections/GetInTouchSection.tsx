@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function GetInTouchSection() {
   return (
-    <section className="netwrix-section bg-rainbow-gradient rainbow-hover-bg text-white py-16 lg:py-24 relative overflow-hidden group">
+    <section className="bunifu-section bg-rainbow-gradient rainbow-hover-bg text-white py-16 lg:py-24 relative overflow-hidden group">
       {/* Additional rainbow overlays for depth + motion on hover */}
       <div className="pointer-events-none absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--rainbow-red)/0.3),transparent_60%)]" />

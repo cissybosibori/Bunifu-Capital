@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function SeeInActionSection() {
   return (
-    <section className="netwrix-section hero-gradient hero-gradient-animated text-white relative overflow-hidden">
+    <section className="bunifu-section hero-gradient hero-gradient-animated text-white relative overflow-hidden">
       <div className="container mx-auto px-4 py-16 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 14 }}

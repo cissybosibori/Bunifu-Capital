@@ -12,7 +12,7 @@ const features = [
 
 export function HowItWorksSection() {
   return (
-    <section className="netwrix-section py-16 lg:py-24 bg-background">
+    <section className="bunifu-section py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

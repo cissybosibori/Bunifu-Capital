@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
-    <footer className="netwrix-section bg-background">
+    <footer className="bunifu-section bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-8">
           <div>

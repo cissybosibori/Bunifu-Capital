@@ -13,7 +13,7 @@ const platforms = [
 
 export function TrustedBySection() {
   return (
-    <section className="netwrix-section border-b border-border bg-background">
+    <section className="bunifu-section border-b border-border bg-background">
       <div className="container mx-auto px-4 py-10 lg:py-12">
         <motion.div
           initial={{ opacity: 0, y: 14 }}

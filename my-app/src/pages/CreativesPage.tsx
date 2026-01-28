@@ -100,7 +100,7 @@ const CreativesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="netwrix-page">
+      <main className="bunifu-page">
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 bg-background border-b border-border">
           {/* Red/Orange/Yellow gradient theme */}
@@ -110,7 +110,7 @@ const CreativesPage = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--rainbow-yellow)/0.15),transparent_70%)]" />
             <div className="absolute -left-40 -bottom-44 h-[640px] w-[720px] bg-[radial-gradient(closest-side,hsl(var(--rainbow-red)/0.35),hsl(var(--rainbow-orange)/0.25),transparent_72%)]" />
             <div className="absolute right-0 top-0 h-[540px] w-[620px] bg-[radial-gradient(closest-side,hsl(var(--rainbow-yellow)/0.28),hsl(var(--rainbow-orange)/0.18),transparent_72%)] blur-3xl translate-x-40 -translate-y-28" />
-            <div className="absolute inset-0 netwrix-grid-svg-white opacity-[0.75]" />
+            <div className="absolute inset-0 bunifu-grid-svg-white opacity-[0.75]" />
           </div>
 
           <div className="container mx-auto px-4 relative">
@@ -154,7 +154,7 @@ const CreativesPage = () => {
         </section>
 
         {/* Scale & diversity (credibility) */}
-        <section className="netwrix-section bg-background py-16 lg:py-24">
+        <section className="bunifu-section bg-background py-16 lg:py-24">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -218,7 +218,7 @@ const CreativesPage = () => {
         </section>
 
         {/* Income reality: gaps (not “problems”) */}
-        <section className="netwrix-section bg-background py-16 lg:py-24">
+        <section className="bunifu-section bg-background py-16 lg:py-24">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -289,7 +289,7 @@ const CreativesPage = () => {
         </section>
 
         {/* Financial companion (self-first) */}
-        <section className="netwrix-section bg-background py-16 lg:py-24">
+        <section className="bunifu-section bg-background py-16 lg:py-24">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -352,7 +352,7 @@ const CreativesPage = () => {
         </section>
 
         {/* Contextual benchmarking (fair comparisons) */}
-        <section className="netwrix-section bg-background py-16 lg:py-24">
+        <section className="bunifu-section bg-background py-16 lg:py-24">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -389,7 +389,7 @@ const CreativesPage = () => {
         </section>
 
         {/* Funding, partnerships & opportunities (after self-value) */}
-        <section className="netwrix-section bg-background py-16 lg:py-24">
+        <section className="bunifu-section bg-background py-16 lg:py-24">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 14 }}

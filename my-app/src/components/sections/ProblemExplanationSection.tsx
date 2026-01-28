@@ -26,8 +26,8 @@ const problems = [
 
 export function ProblemExplanationSection() {
   return (
-    <section className="netwrix-section bg-background py-16 lg:py-24 relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 netwrix-grid-svg-black-lg opacity-[0.15]" />
+    <section className="bunifu-section bg-background py-16 lg:py-24 relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bunifu-grid-svg-black-lg opacity-[0.15]" />
       <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}

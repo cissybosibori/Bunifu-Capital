@@ -23,7 +23,7 @@ const resources = [
 
 export function ResourcesSection() {
   return (
-    <section id="resources" className="netwrix-section py-16 lg:py-24 bg-background">
+    <section id="resources" className="bunifu-section py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ export function ResourcesSection() {
               />
               {/* Rainbow-style background artwork */}
               <div className="pointer-events-none absolute inset-0">
-                <div className="absolute inset-0 netwrix-grid-card opacity-[0.28] invert mix-blend-screen transition-all duration-700 ease-out group-hover:opacity-[0.42] group-hover:-translate-x-2 group-hover:-translate-y-2" />
+                <div className="absolute inset-0 bunifu-grid-card opacity-[0.28] invert mix-blend-screen transition-all duration-700 ease-out group-hover:opacity-[0.42] group-hover:-translate-x-2 group-hover:-translate-y-2" />
                 <div 
                   className="absolute right-10 top-0 bottom-0 w-[2px] opacity-[0.55] transition-all duration-300 group-hover:opacity-100"
                   style={{

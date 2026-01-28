@@ -36,7 +36,7 @@ const features = [
 
 export function PlatformSection() {
   return (
-    <section className="netwrix-section bg-background py-16 lg:py-24" id="platform">
+    <section className="bunifu-section bg-background py-16 lg:py-24" id="platform">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div

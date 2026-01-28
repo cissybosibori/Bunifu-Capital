@@ -47,9 +47,9 @@ export function Header() {
           >
             <div className="container mx-auto px-4 h-11 flex items-center justify-center text-sm relative">
               <p className="text-center max-w-3xl">
-                Magic Quadrant™ for Privileged Access Management 2025: Netwrix Recognized for the Fourth Year in a Row.{" "}
+                Bunifu Capital is pre-launch. Join the waitlist to help shape what we build.{" "}
                 <a href="#" className="underline underline-offset-4">
-                  Download the report.
+                  Get involved.
                 </a>
               </p>
               <button
