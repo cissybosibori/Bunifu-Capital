@@ -159,7 +159,7 @@ function CareersPage() {
   const [applicationOpen, setApplicationOpen] = useState(false);
   const [talentPoolOpen, setTalentPoolOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [isTalentPoolMode, setIsTalentPoolMode] = useState(false);
+  const [, setIsTalentPoolMode] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",

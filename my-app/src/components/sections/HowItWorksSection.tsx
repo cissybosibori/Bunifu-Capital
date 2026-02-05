@@ -1,14 +1,4 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
-
-const features = [
-  { label: "Flexible deployment" },
-  { label: "Fast implementation" },
-  { label: "Reduced complexity" },
-  { label: "AI-powered insights" },
-  { label: "Expert support" },
-  { label: "Lower TCO" },
-];
 
 export function HowItWorksSection() {
   return (
