@@ -46,9 +46,9 @@ export function Header() {
             className="bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift text-white"
           >
             <div className="container mx-auto px-4 h-11 flex items-center justify-center text-sm relative">
-              <p className="text-center max-w-3xl">
+              <p className="text-center max-w-3xl font-semibold">
                 Bunifu Capital is pre-launch. Join the waitlist to help shape what we build.{" "}
-                <a href="#" className="underline underline-offset-4">
+                <a href="#" className="underline underline-offset-4 font-bold">
                   Get involved.
                 </a>
               </p>
@@ -69,8 +69,8 @@ export function Header() {
       <div className="bg-background border-b border-border">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center text-2xl font-semibold tracking-tight rainbow-hover">
-            Bunifu Capital
+          <Link to="/" className="flex items-center gap-3 text-2xl font-semibold tracking-tight">
+            <span className="text-[hsl(var(--rainbow-orange))]">Bunifu Capital</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -90,7 +90,7 @@ export function Header() {
                 <Link
                   key={item.label}
                   to={item.href || "#"}
-                  className={`flex items-center gap-1 px-4 py-2 text-sm text-foreground/80 ${hoverColor} transition-all duration-300 relative group`}
+                  className={`flex items-center gap-1 px-4 py-2 text-sm font-semibold text-foreground/80 ${hoverColor} transition-all duration-300 relative group`}
                 >
                   {item.label}
                   {item.hasDropdown && <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />}
@@ -150,7 +150,7 @@ export function Header() {
                   <Link
                     key={item.label}
                     to={item.href || "#"}
-                    className={`flex items-center justify-between py-3 border-b border-border/50 text-foreground transition-all duration-300 ${hoverColor}`}
+                    className={`flex items-center justify-between py-3 border-b border-border/50 text-foreground font-semibold transition-all duration-300 ${hoverColor}`}
                   >
                     {item.label}
                     {item.hasDropdown && <ChevronDown className="w-4 h-4" />}

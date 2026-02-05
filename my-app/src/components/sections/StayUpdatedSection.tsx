@@ -1,15 +1,37 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
-const topArticles = [
-  "Essential PowerShell Commands: A Cheat Sheet for Beginners",
-  "Download and Install PowerShell 7",
-  "Common Types of Network Devices and Their Functions",
-  "How to Run PowerShell Script from Task Scheduler",
-  "How to Install & Use Active Directory Users and Computers (ADUC)?",
+const faqItems: { question: string; answer: string }[] = [
+  {
+    question: "When is the launch date?",
+    answer: "We're in pre-launch. Join the waitlist to be notified when we go live and to help shape what we build.",
+  },
+  {
+    question: "What is the pricing?",
+    answer: "Pricing will be announced at launch. Check our Pricing page or join the waitlist for early updates.",
+  },
+  {
+    question: "Is it an app or a website (PWA)?",
+    answer: "Bunifu Capital will be available as a web experience with PWA support so you can use it like an app on your device.",
+  },
+  {
+    question: "How do I get more info?",
+    answer: "Sign up for the waitlist, follow our updates, or get in touch via the Get involved page for demos and conversations.",
+  },
+  {
+    question: "Do you connect with financial institutions?",
+    answer: "Yes. We're building infrastructure to connect creative income with capital and work with banks, lenders, and investors.",
+  },
+  {
+    question: "Are you giving credit?",
+    answer: "We standardize and translate creative income into signals that financial institutions can use. Lending and credit decisions are made by our partners; we enable the connection.",
+  },
 ];
 
 export function StayUpdatedSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <section className="bunifu-section bg-background py-16 lg:py-24">
       <div className="container mx-auto px-4">
@@ -55,7 +77,7 @@ export function StayUpdatedSection() {
             </p>
           </motion.div>
 
-          {/* Top articles */}
+          {/* Frequently asked questions */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,9 +85,10 @@ export function StayUpdatedSection() {
             transition={{ duration: 0.45, delay: 0.05 }}
             className="p-8 md:p-10"
           >
-            <h3 className="text-xl font-semibold mb-6">Read top articles</h3>
+            <h3 className="text-xl font-semibold mb-6">Frequently asked questions</h3>
             <div className="divide-y divide-border">
-              {topArticles.map((title, index) => {
+              {faqItems.map((item, index) => {
+                const isOpen = openIndex === index;
                 const rainbowColors = [
                   'hover:text-rainbow-red',
                   'hover:text-rainbow-orange',
@@ -74,20 +97,39 @@ export function StayUpdatedSection() {
                   'hover:text-rainbow-blue',
                 ];
                 const hoverColor = rainbowColors[index % 5];
+                const rainbowNames = ['red', 'orange', 'yellow', 'green', 'blue'] as const;
+                const iconColor = rainbowNames[index % 5];
                 return (
-                  <a
-                    key={title}
-                    href="#"
-                    className={`article-link group flex items-center justify-between gap-4 py-4 px-2 -mx-2 text-foreground/80 ${hoverColor} hover:bg-gradient-to-r hover:from-rainbow-red/5 hover:to-transparent transition-all duration-300`}
-                  >
-                    <span className="transition-transform duration-200 group-hover:translate-x-1">{title}</span>
-                    <ChevronRight 
-                      className="h-5 w-5 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0"
-                      style={{
-                        color: `hsl(var(--rainbow-${index % 5 === 0 ? 'red' : index % 5 === 1 ? 'orange' : index % 5 === 2 ? 'yellow' : index % 5 === 3 ? 'green' : 'blue'}))`,
-                      }}
-                    />
-                  </a>
+                  <div key={item.question} className="py-0">
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? null : index)}
+                      className={`article-link group flex w-full items-center justify-between gap-4 py-4 px-2 -mx-2 text-left text-foreground/80 ${hoverColor} hover:bg-gradient-to-r hover:from-rainbow-red/5 hover:to-transparent transition-all duration-300`}
+                    >
+                      <span className="transition-transform duration-200 group-hover:translate-x-1">{item.question}</span>
+                      <ChevronRight
+                        className={`h-5 w-5 shrink-0 transition-all duration-200 ${isOpen ? 'rotate-90 opacity-100' : 'opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0'}`}
+                        style={{
+                          color: `hsl(var(--rainbow-${iconColor}))`,
+                        }}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pb-4 pt-0 px-2 -mx-2 text-foreground/70 text-sm leading-relaxed">
+                            {item.answer}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 );
               })}
             </div>

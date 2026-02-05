@@ -7,6 +7,7 @@ import PartnershipsPage from "@/pages/PartnershipsPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import WaitlistPage from "@/pages/WaitlistPage";
 import PricingPage from "@/pages/PricingPage";
+import CareersPage from "@/pages/CareersPage";
 import NotFound from "@/pages/NotFound";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/waitlist" element={<WaitlistPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/careers" element={<CareersPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />

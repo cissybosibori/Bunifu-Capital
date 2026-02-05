@@ -66,9 +66,10 @@ export function ResourcesSection() {
                     : `linear-gradient(to bottom right, hsl(var(--rainbow-blue)), hsl(var(--rainbow-indigo)), hsl(var(--rainbow-violet)))`,
                 }}
               />
+              <div className="absolute inset-0 bg-black/25 pointer-events-none" aria-hidden />
               {/* Rainbow-style background artwork */}
               <div className="pointer-events-none absolute inset-0">
-                <div className="absolute inset-0 bunifu-grid-card opacity-[0.28] invert mix-blend-screen transition-all duration-700 ease-out group-hover:opacity-[0.42] group-hover:-translate-x-2 group-hover:-translate-y-2" />
+                <div className="absolute inset-0 bunifu-grid-card-small opacity-[0.28] transition-all duration-700 ease-out group-hover:opacity-[0.42]" />
                 <div 
                   className="absolute right-10 top-0 bottom-0 w-[2px] opacity-[0.55] transition-all duration-300 group-hover:opacity-100"
                   style={{
@@ -90,7 +91,7 @@ export function ResourcesSection() {
 
               <div className="relative p-8 h-full flex flex-col">
                 <div 
-                  className="flex items-center gap-2 text-sm font-medium mb-4 transition-colors duration-300 group-hover:scale-105"
+                  className="flex items-center gap-2 text-sm font-medium mb-4 transition-colors duration-300 group-hover:scale-105 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
                   style={{
                     color: index === 0 ? `hsl(var(--rainbow-red))` : `hsl(var(--rainbow-blue))`,
                   }}
@@ -99,18 +100,18 @@ export function ResourcesSection() {
                   {resource.type}
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight mb-5">
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight mb-5 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
                   {resource.title}
                 </h3>
 
-                <div className="mt-auto flex items-center justify-between gap-6 text-white/80">
+                <div className="mt-auto flex items-center justify-between gap-6 text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
                   <div className="flex items-center gap-3">
                     <div className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center text-xs">
                       {resource.author.split(" ")[0].slice(0, 1)}
                     </div>
                     <div>
                       <div className="text-sm font-medium text-white">{resource.author}</div>
-                      <div className="text-xs text-white/70">{resource.category}</div>
+                      <div className="text-xs text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">{resource.category}</div>
                     </div>
                   </div>
 

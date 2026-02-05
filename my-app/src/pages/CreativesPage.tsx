@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Layers, TrendingUp, Wallet, Radar, Flame } from "lucide-react";
+import { TiltCard } from "@/components/ui/tilt-card";
 import { cn } from "@/lib/utils";
 
 const creativeReality = [
@@ -48,53 +48,91 @@ const benchmarkingExamples = [
   "Lifestyle creators compared only to lifestyle creators (same country, same niche).",
 ];
 
-function TiltCard({
-  tone = "red",
-  children,
-  className = "",
-}: {
-  tone?: "red" | "orange" | "yellow";
-  children: ReactNode;
-  className?: string;
-}) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 220, damping: 18 });
-  const sy = useSpring(y, { stiffness: 220, damping: 18 });
-  const rotateX = useTransform(sy, [-40, 40], [10, -10]);
-  const rotateY = useTransform(sx, [-40, 40], [-10, 10]);
-
-  const toneStyles =
-    tone === "red"
-      ? "from-rainbow-red/10 via-rainbow-orange/5 to-transparent hover:shadow-rainbow-red/20"
-      : tone === "orange"
-        ? "from-rainbow-orange/10 via-rainbow-yellow/5 to-transparent hover:shadow-rainbow-orange/20"
-        : "from-rainbow-yellow/10 via-rainbow-orange/5 to-transparent hover:shadow-rainbow-yellow/20";
-
-  return (
-    <motion.div
-      onMouseMove={(e) => {
-        const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-        x.set(e.clientX - r.left - r.width / 2);
-        y.set(e.clientY - r.top - r.height / 2);
-      }}
-      onMouseLeave={() => {
-        x.set(0);
-        y.set(0);
-      }}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={cn(
-        "relative rounded-xl border-2 border-border bg-background/70 backdrop-blur-sm p-6 transition-all duration-300 hover:border-foreground/15 hover:shadow-2xl",
-        className,
-      )}
-    >
-      <div className={cn("pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br opacity-100", toneStyles)} />
-      <div className="relative" style={{ transform: "translateZ(18px)" }}>
-        {children}
-      </div>
-    </motion.div>
-  );
-}
+const platformGroups = [
+  {
+    category: "Music and audio",
+    direct: [
+      "Spotify for Artists",
+      "Apple Music for Artists",
+      "Audiomack",
+      "Boomplay",
+      "Bandcamp",
+      "SoundCloud Premier",
+      "YouTube Music",
+    ],
+    indirect: [
+      "TikTok",
+      "Instagram Reels",
+      "YouTube",
+      "Patreon",
+      "Buy Me a Coffee",
+      "Sync platforms (e.g. Songtradr)",
+    ],
+  },
+  {
+    category: "Visual artists and illustrators",
+    direct: [
+      "Etsy",
+      "Gumroad",
+      "Creative Market",
+      "ArtStation Marketplace",
+      "Redbubble",
+      "Society6",
+      "Fine Art America",
+    ],
+    indirect: ["Instagram", "Pinterest", "Behance", "Dribbble", "Patreon", "NFT platforms (when relevant)"],
+  },
+  {
+    category: "Filmmakers and videographers",
+    direct: [
+      "YouTube Partner Program",
+      "Vimeo On Demand",
+      "Gumroad",
+      "Pond5",
+      "Artgrid",
+      "Motion Array",
+    ],
+    indirect: [
+      "Instagram",
+      "TikTok",
+      "X",
+      "LinkedIn",
+      "Brand partnerships",
+      "Film grants and festivals",
+    ],
+  },
+  {
+    category: "Poets and writers",
+    direct: ["Substack", "Medium Partner Program", "Amazon KDP", "Gumroad", "Payhip"],
+    indirect: ["Instagram", "X", "TikTok", "Patreon", "Literary grants and residencies"],
+  },
+  {
+    category: "Content creators and influencers",
+    direct: [
+      "YouTube",
+      "TikTok Creator Rewards",
+      "Instagram Bonuses",
+      "Facebook In-Stream Ads",
+      "Snapchat Spotlight",
+    ],
+    indirect: ["Brand deals", "Affiliate marketing", "Patreon", "Buy Me a Coffee", "Merchandise stores"],
+  },
+  {
+    category: "Digital entrepreneurs and builders",
+    direct: ["Gumroad", "Lemon Squeezy", "Shopify", "Stripe Checkout", "App marketplaces"],
+    indirect: ["X", "LinkedIn", "YouTube", "Substack", "Affiliate programs"],
+  },
+  {
+    category: "Fashion designers",
+    direct: ["Shopify", "Etsy", "Big Cartel", "Depop", "Sellfy"],
+    indirect: ["Instagram", "TikTok", "Pinterest", "Fashion marketplaces", "Brand collaborations"],
+  },
+  {
+    category: "Models",
+    direct: ["ModelMayhem", "OnlyFans", "Fanvue", "Brand bookings via agencies"],
+    indirect: ["Instagram", "TikTok", "X", "Personal websites", "Affiliate links"],
+  },
+];
 
 const CreativesPage = () => {
   return (
@@ -284,6 +322,73 @@ const CreativesPage = () => {
                   IP has value. On this page we acknowledge it; deeper discussion and future approaches to valuation live in Resources.
                 </p>
               </TiltCard>
+            </div>
+          </div>
+        </section>
+
+        {/* Platforms we understand */}
+        <section className="bunifu-section bg-background py-16 lg:py-24">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.45 }}
+              className="text-center mb-10 lg:mb-14"
+            >
+              <p className="text-gradient bg-gradient-to-r from-[hsl(var(--rainbow-red))] via-[hsl(var(--rainbow-orange))] to-[hsl(var(--rainbow-yellow))] bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent font-medium mb-3">
+                Platforms we understand
+              </p>
+              <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6">
+                Built for how creatives{" "}
+                <span className="text-gradient bg-gradient-to-r from-[hsl(var(--rainbow-red))] via-[hsl(var(--rainbow-orange))] to-[hsl(var(--rainbow-yellow))] bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">
+                  actually earn
+                </span>
+              </h2>
+              <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
+                From music and visual art to filmmaking, writing, fashion, and digital products, Bunifu Capital is designed
+                to read income across the platforms where creative work really lives.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {platformGroups.map((group, idx) => {
+                const tones: ("red" | "orange" | "yellow")[] = ["red", "orange", "yellow"];
+                const tone = tones[idx % 3];
+                return (
+                  <TiltCard key={group.category} tone={tone} className="min-h-[280px]">
+                    <h4 className="text-lg font-semibold mb-4">{group.category}</h4>
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <p className="mb-2 text-xs font-medium uppercase tracking-wide text-foreground/60">Direct income</p>
+                        <div className="flex flex-wrap gap-2">
+                          {group.direct.map((name) => (
+                            <span
+                              key={name}
+                              className="inline-flex items-center rounded-full border border-border bg-background/80 px-2.5 py-1 text-xs font-medium text-foreground/80"
+                            >
+                              {name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="mt-2 mb-2 text-xs font-medium uppercase tracking-wide text-foreground/60">Indirect / influence</p>
+                        <div className="flex flex-wrap gap-2">
+                          {group.indirect.map((name) => (
+                            <span
+                              key={name}
+                              className="inline-flex items-center rounded-full border border-border bg-muted/80 px-2.5 py-1 text-xs font-medium text-foreground/70"
+                            >
+                              {name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </TiltCard>
+                );
+              })}
             </div>
           </div>
         </section>

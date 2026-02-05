@@ -1,44 +1,44 @@
 export function HeroDashboardMain() {
   return (
-    <div className="bg-white rounded-xl border border-border shadow-[0_24px_64px_rgba(0,0,0,0.14)] p-4 lg:p-5">
+    <div className="bg-white rounded-xl border border-border shadow-[0_20px_48px_rgba(0,0,0,0.12)] p-3 lg:p-4 w-full max-w-[92%] sm:max-w-[88%] mx-auto flex flex-col">
       {/* Header */}
-      <div className="mb-6 pb-4 border-b border-border">
-        <h3 className="text-2xl font-semibold text-foreground">Bunifu Capital</h3>
-        <p className="text-sm text-foreground/60 mt-1">Creative Income Financial Profile</p>
+      <div className="mb-3 pb-2.5 border-b border-border shrink-0">
+        <h3 className="text-lg font-semibold text-foreground">Bunifu Capital</h3>
+        <p className="text-[11px] text-foreground/60 mt-0.5">Creative Income Financial Profile</p>
       </div>
 
       {/* Top Metrics Row */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
-        <div className="bg-muted/50 rounded-lg p-3">
-          <p className="text-[10px] text-foreground/60 mb-0.5">Credit Score</p>
-          <p className="text-lg font-bold text-accent">742</p>
-          <p className="text-[10px] text-emerald-600 mt-0.5">+15 pts</p>
+      <div className="grid grid-cols-4 gap-2 mb-3 shrink-0">
+        <div className="bg-muted/50 rounded-md p-2">
+          <p className="text-[9px] text-foreground/60 mb-0.5">Credit Score</p>
+          <p className="text-sm font-bold text-accent">742</p>
+          <p className="text-[9px] text-emerald-600 mt-0.5">+15 pts</p>
         </div>
-        <div className="bg-muted/50 rounded-lg p-3">
-          <p className="text-[10px] text-foreground/60 mb-0.5">Monthly Income</p>
-          <p className="text-lg font-bold text-foreground">$8,450</p>
-          <p className="text-[10px] text-emerald-600 mt-0.5">+12%</p>
+        <div className="bg-muted/50 rounded-md p-2">
+          <p className="text-[9px] text-foreground/60 mb-0.5">Monthly Income</p>
+          <p className="text-sm font-bold text-foreground">$8,450</p>
+          <p className="text-[9px] text-emerald-600 mt-0.5">+12%</p>
         </div>
-        <div className="bg-muted/50 rounded-lg p-3">
-          <p className="text-[10px] text-foreground/60 mb-0.5">Income Stability</p>
-          <p className="text-lg font-bold text-foreground">High</p>
-          <p className="text-[10px] text-foreground/50 mt-0.5">6+ months</p>
+        <div className="bg-muted/50 rounded-md p-2">
+          <p className="text-[9px] text-foreground/60 mb-0.5">Income Stability</p>
+          <p className="text-sm font-bold text-foreground">High</p>
+          <p className="text-[9px] text-foreground/50 mt-0.5">6+ months</p>
         </div>
-        <div className="bg-muted/50 rounded-lg p-3">
-          <p className="text-[10px] text-foreground/60 mb-0.5">Credit Limit</p>
-          <p className="text-lg font-bold text-emerald-600">$25K</p>
-          <p className="text-[10px] text-foreground/50 mt-0.5">Eligible</p>
+        <div className="bg-muted/50 rounded-md p-2">
+          <p className="text-[9px] text-foreground/60 mb-0.5">Credit Limit</p>
+          <p className="text-sm font-bold text-emerald-600">$25K</p>
+          <p className="text-[9px] text-foreground/50 mt-0.5">Eligible</p>
         </div>
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-2 gap-2 mb-3 shrink-0">
         {/* Pie Chart - Income Sources */}
-        <div className="bg-muted/30 rounded-lg p-3">
-          <p className="text-xs font-medium text-foreground/70 mb-3">Income Distribution</p>
-          <div className="flex items-center gap-4">
+        <div className="bg-muted/30 rounded-md p-2">
+          <p className="text-[10px] font-medium text-foreground/70 mb-2">Income Distribution</p>
+          <div className="flex items-center gap-2">
             {/* Pie Chart Visualization */}
-            <div className="relative w-24 h-24">
+            <div className="relative w-16 h-16">
               <svg viewBox="0 0 100 100" className="transform -rotate-90">
                 <circle
                   cx="50"
@@ -91,38 +91,38 @@ export function HeroDashboardMain() {
               </svg>
             </div>
             {/* Legend */}
-            <div className="flex-1 space-y-1.5">
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-accent" />
-                <span className="text-[10px] text-foreground">YouTube (38%)</span>
+            <div className="flex-1 space-y-1">
+              <div className="flex items-center gap-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <span className="text-[9px] text-foreground">YouTube (38%)</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="text-[10px] text-foreground">Instagram (25%)</span>
+              <div className="flex items-center gap-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="text-[9px] text-foreground">Instagram (25%)</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-yellow-500" />
-                <span className="text-[10px] text-foreground">TikTok (22%)</span>
+              <div className="flex items-center gap-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
+                <span className="text-[9px] text-foreground">TikTok (22%)</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-purple-500" />
-                <span className="text-[10px] text-foreground">Other (15%)</span>
+              <div className="flex items-center gap-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                <span className="text-[9px] text-foreground">Other (15%)</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Line Graph - Income Trend */}
-        <div className="bg-muted/30 rounded-lg p-3">
-          <p className="text-xs font-medium text-foreground/70 mb-3">6-Month Income Trend</p>
-          <div className="h-24 flex items-end justify-between gap-1.5">
+        <div className="bg-muted/30 rounded-md p-2">
+          <p className="text-[10px] font-medium text-foreground/70 mb-2">6-Month Income Trend</p>
+          <div className="h-14 flex items-end justify-between gap-1">
             {[65, 72, 68, 85, 78, 100].map((height, i) => (
-              <div key={i} className="flex-1 flex flex-col items-center gap-1">
+              <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
                 <div
                   className="w-full bg-accent rounded-t transition-all"
                   style={{ height: `${height}%` }}
                 />
-                <span className="text-xs text-foreground/50">{['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'][i]}</span>
+                <span className="text-[9px] text-foreground/50">{['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'][i]}</span>
               </div>
             ))}
           </div>
@@ -130,9 +130,9 @@ export function HeroDashboardMain() {
       </div>
 
       {/* Income Sources Table */}
-      <div>
-        <p className="text-xs font-medium text-foreground/70 mb-2">Platform Breakdown</p>
-        <div className="space-y-1.5">
+      <div className="min-h-0 shrink">
+        <p className="text-[10px] font-medium text-foreground/70 mb-1.5">Platform Breakdown</p>
+        <div className="space-y-0.5">
           {[
             { platform: "YouTube", amount: "$3,200", percentage: 38, trend: "+8%" },
             { platform: "Instagram", amount: "$2,100", percentage: 25, trend: "+12%" },
@@ -141,21 +141,21 @@ export function HeroDashboardMain() {
             { platform: "M-Pesa", amount: "$400", percentage: 5, trend: "+3%" },
             { platform: "Shopify", amount: "$100", percentage: 1, trend: "0%" },
           ].map((source) => (
-            <div key={source.platform} className="flex items-center gap-2 py-1.5 border-b border-border/30 last:border-0">
-              <div className="w-16 text-xs text-foreground">{source.platform}</div>
-              <div className="flex-1">
-                <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+            <div key={source.platform} className="flex items-center gap-1.5 py-1 border-b border-border/30 last:border-0">
+              <div className="w-12 text-[9px] text-foreground">{source.platform}</div>
+              <div className="flex-1 min-w-0">
+                <div className="h-1 bg-muted rounded-full overflow-hidden">
                   <div
                     className="h-full bg-accent/60 rounded-full"
                     style={{ width: `${source.percentage}%` }}
                   />
                 </div>
               </div>
-              <div className="w-16 text-right">
-                <span className="text-xs font-medium text-foreground">{source.amount}</span>
+              <div className="w-12 text-right">
+                <span className="text-[9px] font-medium text-foreground">{source.amount}</span>
               </div>
-              <div className="w-10 text-right">
-                <span className="text-[10px] text-emerald-600">{source.trend}</span>
+              <div className="w-8 text-right">
+                <span className="text-[9px] text-emerald-600">{source.trend}</span>
               </div>
             </div>
           ))}

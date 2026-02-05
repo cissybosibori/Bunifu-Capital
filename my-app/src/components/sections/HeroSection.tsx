@@ -17,7 +17,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 bg-background border-b border-border"
+      className="relative overflow-hidden min-h-[576px] pt-28 pb-16 lg:pt-32 lg:pb-20 bg-background border-b border-border"
     >
       {/* Vibrant Rainbow gradient washes */}
       <div className="pointer-events-none absolute inset-0">
@@ -52,14 +52,14 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.96] mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.96] mb-6">
               Opening access to finance
               <br />
               for the{" "}
               <span className="text-gradient bg-rainbow-gradient bg-[length:200%_200%] animate-rainbow-shift bg-clip-text text-transparent">creative economy</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl font-semibold text-foreground/80 mb-8 max-w-xl mx-auto lg:mx-0">
               Bunifu Capital is building infrastructure to connect creative income with capital. We standardize, analyze, and translate fragmented creative income into financial signals that banks, lenders, and investors can understand and trust.
             </p>
 
@@ -76,22 +76,22 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right content - Hero image */}
+          {/* Right content - Hero dashboards (centered, floating, not touching edges) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative flex justify-center items-center px-4 sm:px-6 lg:px-8"
           >
-            <motion.div style={{ y: heroImageY }} className="relative">
-              <div className="relative mx-auto w-full max-w-[600px] lg:ml-auto">
-                {/* Main dashboard (behind) */}
+            <motion.div style={{ y: heroImageY }} className="relative w-full max-w-[500px] mx-auto">
+              <div className="relative w-full py-4">
+                {/* Main dashboard (behind) - centered */}
                 <div className="relative z-0 w-full">
                   <HeroDashboardMain />
                 </div>
 
-                {/* Smaller tablet dashboard: slight overlap (on top) */}
-                <div className="hidden md:block absolute -right-8 -top-8 w-[45%] max-w-[280px] z-10">
+                {/* Smaller tablet dashboard: slight overlap (on top), centered relative to main */}
+                <div className="hidden md:block absolute right-0 top-0 translate-x-2 -translate-y-2 w-[42%] max-w-[200px] z-10">
                   <HeroDashboardTablet />
                 </div>
               </div>

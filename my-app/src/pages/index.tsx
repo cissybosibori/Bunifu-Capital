@@ -11,7 +11,6 @@ import { SeeInActionSection } from "@/components/sections/SeeInActionSection";
 import { ResourcesSection } from "@/components/sections/ResourcesSection";
 import { WaitlistSignupSection } from "@/components/sections/WaitlistSignupSection";
 import { StayUpdatedSection } from "@/components/sections/StayUpdatedSection";
-import { GetInTouchSection } from "@/components/sections/GetInTouchSection";
 import { Footer } from "@/components/layout/Footer";
 
 const Index = () => {
@@ -31,7 +30,6 @@ const Index = () => {
         <ResourcesSection />
         <WaitlistSignupSection />
         <StayUpdatedSection />
-        <GetInTouchSection />
       </main>
       <Footer />
     </div>

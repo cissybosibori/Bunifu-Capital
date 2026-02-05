@@ -2,12 +2,32 @@ import { motion } from "framer-motion";
 import { Building2 } from "lucide-react";
 
 const platforms = [
+  // Short-form & social
   { name: "TikTok", logo: "https://logos-world.net/wp-content/uploads/2021/04/TikTok-Logo.png" },
   { name: "Instagram", logo: "https://logos-world.net/wp-content/uploads/2017/04/Instagram-Logo.png" },
   { name: "YouTube", logo: "https://logos-world.net/wp-content/uploads/2020/04/YouTube-Logo.png" },
+  { name: "Facebook", logo: "https://logos-world.net/wp-content/uploads/2020/04/Facebook-Logo.png" },
+  { name: "Snapchat", logo: "https://logos-world.net/wp-content/uploads/2020/04/Snapchat-Logo.png" },
+  { name: "X", logo: "https://seeklogo.com/images/X/x-logo-twitter-new-brand-icon-png-11692489027utlfa0bqra.png" },
+  { name: "LinkedIn", logo: "https://logos-world.net/wp-content/uploads/2020/04/Linkedin-Logo.png" },
+
+  // Music & audio
   { name: "Spotify", logo: "https://logos-world.net/wp-content/uploads/2020/09/Spotify-Logo.png" },
-  { name: "M-Pesa", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/2560px-M-PESA_LOGO-01.svg.png" },
+  { name: "Apple Music", logo: "https://logos-world.net/wp-content/uploads/2020/09/Apple-Music-Logo.png" },
+
+  // Marketplaces & creator platforms
+  { name: "Etsy", logo: "https://logos-world.net/wp-content/uploads/2021/02/Etsy-Logo.png" },
+  { name: "Amazon", logo: "https://logos-world.net/wp-content/uploads/2020/04/Amazon-Logo.png" },
+  { name: "Pinterest", logo: "https://logos-world.net/wp-content/uploads/2020/09/Pinterest-Logo.png" },
   { name: "Shopify", logo: "https://logos-world.net/wp-content/uploads/2020/11/Shopify-Logo.png" },
+  { name: "Substack", logo: "https://seeklogo.com/images/S/substack-logo-F6B5685F4D-seeklogo.com.png" },
+  { name: "OnlyFans", logo: "https://seeklogo.com/images/O/onlyfans-logo-3C0C7D3F7C-seeklogo.com.png" },
+
+  // Payments / infra
+  { name: "Stripe", logo: "https://logos-world.net/wp-content/uploads/2021/03/Stripe-Logo.png" },
+  { name: "M-Pesa", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/2560px-M-PESA_LOGO-01.svg.png" },
+
+  // Generic financial institutions
   { name: "Bank", isIcon: true },
 ];
 
