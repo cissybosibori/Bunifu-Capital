@@ -39,6 +39,16 @@
     --navy: 240 100% 20%;
     --radius: 0.8rem;
 
+    /* Sidebar (admin) */
+    --sidebar: 0 0% 98%;
+    --sidebar-foreground: 240 10% 10%;
+    --sidebar-primary: 240 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 20% 94%;
+    --sidebar-accent-foreground: 240 10% 10%;
+    --sidebar-border: 240 10% 90%;
+    --sidebar-ring: 240 100% 50%;
+
     /* Rainbow colors */
     --rainbow-red: 0 100% 50%;
     --rainbow-orange: 30 100% 50%;
@@ -79,6 +89,15 @@
     --ring: 0 100% 60%;
 
     --navy: 240 100% 30%;
+
+    --sidebar: 240 18% 12%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 240 100% 70%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 240 12% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 22%;
+    --sidebar-ring: 240 100% 70%;
 
     --rainbow-red: 0 100% 60%;
     --rainbow-orange: 30 100% 60%;

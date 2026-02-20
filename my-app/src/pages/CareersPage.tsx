@@ -32,6 +32,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePublicContent } from "@/context/PublicContentContext";
+import { EmptyState } from "@/components/EmptyState";
 
 const DEPARTMENTS = [
   "Tech",
@@ -47,110 +49,10 @@ const JOB_TYPES = ["Full time", "Part time", "Contract", "Internship"] as const;
 
 const LOCATIONS = ["Remote", "On site", "Hybrid"] as const;
 
-type Department = (typeof DEPARTMENTS)[number];
-type JobType = (typeof JOB_TYPES)[number];
-type Location = (typeof LOCATIONS)[number];
-
-interface Job {
-  id: string;
-  title: string;
-  department: Department;
-  location: Location;
-  employmentType: JobType;
-  summary: string;
-  description: string;
-  responsibilities: string[];
-  requirements: string[];
-  niceToHave: string[];
-}
-
-// Toggle to simulate "no open roles" – set to [] to show talent-pool-only state
-const OPEN_ROLES: Job[] = [
-  {
-    id: "1",
-    title: "Senior Full-Stack Engineer",
-    department: "Tech",
-    location: "Remote",
-    employmentType: "Full time",
-    summary:
-      "Build and scale product infrastructure for the creative economy. You'll work on APIs, data pipelines, and front-end tools used by creatives and financial institutions.",
-    description:
-      "We're looking for a senior full-stack engineer to own key parts of our platform. You'll work with a small team to design, build, and maintain systems that connect creative income data with financial analytics and reporting.",
-    responsibilities: [
-      "Design and implement APIs and services for income verification and analytics",
-      "Build and maintain front-end experiences for creatives and partners",
-      "Collaborate with product and design on new features and improvements",
-      "Participate in code reviews and help shape engineering practices",
-    ],
-    requirements: [
-      "5+ years of experience building production web applications",
-      "Strong experience with TypeScript/JavaScript and a modern framework (e.g. React)",
-      "Experience with REST or GraphQL APIs and relational databases",
-      "Comfort with ambiguity and fast-moving product decisions",
-    ],
-    niceToHave: [
-      "Experience in fintech or financial data systems",
-      "Familiarity with creative platforms (e.g. Spotify, YouTube, Patreon)",
-      "Interest in the creative economy",
-    ],
-  },
-  {
-    id: "2",
-    title: "Product Designer",
-    department: "Design",
-    location: "Hybrid",
-    employmentType: "Full time",
-    summary:
-      "Shape the product experience for creatives and institutions. You'll own UX and visual design for our core flows and help define our design system.",
-    description:
-      "As our first dedicated product designer, you'll have a big impact on how creatives and financial partners experience Bunifu Capital. You'll work closely with engineering and product to ship clear, inclusive, and effective interfaces.",
-    responsibilities: [
-      "Own end-to-end design for key product flows (onboarding, dashboards, reports)",
-      "Create and maintain a design system that scales across the product",
-      "Conduct user research and usability testing with creatives and partners",
-      "Collaborate with engineering to ensure high-quality implementation",
-    ],
-    requirements: [
-      "4+ years of product or UX design experience",
-      "Strong portfolio showing web or mobile product work",
-      "Proficiency in Figma or similar design tools",
-      "Experience working with developers in an agile environment",
-    ],
-    niceToHave: [
-      "Experience in fintech, banking, or B2B SaaS",
-      "Interest in the creative economy and inclusive design",
-    ],
-  },
-  {
-    id: "3",
-    title: "Partnerships Lead",
-    department: "Marketing",
-    location: "Remote",
-    employmentType: "Full time",
-    summary:
-      "Drive growth through partnerships with platforms, creators, and financial institutions. You'll own outreach, relationship building, and early commercial conversations.",
-    description:
-      "We're looking for someone to own our partnerships pipeline and help turn interest into long-term relationships. You'll work with creative platforms, data partners, and financial institutions to expand Bunifu Capital's reach and value.",
-    responsibilities: [
-      "Identify and prioritize partnership opportunities across the creative and financial ecosystem",
-      "Lead outreach, meetings, and follow-up with potential partners",
-      "Support product and leadership with partner feedback and requirements",
-      "Help define and track partnership metrics and goals",
-    ],
-    requirements: [
-      "3+ years in partnerships, business development, or similar",
-      "Strong communication and relationship-building skills",
-      "Ability to work independently and prioritize in a fast-moving environment",
-      "Interest in the creative economy and financial inclusion",
-    ],
-    niceToHave: [
-      "Experience in fintech, creative industries, or platform businesses",
-      "Existing network in creative or financial sectors",
-    ],
-  },
-];
+type Job = import("@/context/PublicContentContext").PublicJob;
 
 function CareersPage() {
+  const { openRoles } = usePublicContent();
   const [departmentFilter, setDepartmentFilter] = useState<string>("all");
   const [jobTypeFilter, setJobTypeFilter] = useState<string>("all");
   const [locationFilter, setLocationFilter] = useState<string>("all");
@@ -178,7 +80,7 @@ function CareersPage() {
   });
 
   const filteredJobs = useMemo(() => {
-    return OPEN_ROLES.filter((job) => {
+    return openRoles.filter((job) => {
       const matchDept = departmentFilter === "all" || job.department === departmentFilter;
       const matchType = jobTypeFilter === "all" || job.employmentType === jobTypeFilter;
       const matchLocation = locationFilter === "all" || job.location === locationFilter;
@@ -235,7 +137,7 @@ function CareersPage() {
     }));
   };
 
-  const hasOpenRoles = OPEN_ROLES.length > 0;
+  const hasOpenRoles = openRoles.length > 0;
 
   return (
     <div className="min-h-screen bg-background">
@@ -393,7 +295,7 @@ function CareersPage() {
                             <div>
                               <h3 className="text-sm font-semibold mb-2">Responsibilities</h3>
                               <ul className="list-disc list-inside text-sm text-foreground/70 space-y-1">
-                                {selectedJob.responsibilities.map((r, i) => (
+                                {selectedJob.responsibilities.map((r: string, i: number) => (
                                   <li key={i}>{r}</li>
                                 ))}
                               </ul>
@@ -410,7 +312,7 @@ function CareersPage() {
                               <div>
                                 <h3 className="text-sm font-semibold mb-2">Nice to have</h3>
                                 <ul className="list-disc list-inside text-sm text-foreground/70 space-y-1">
-                                  {selectedJob.niceToHave.map((r, i) => (
+                                  {selectedJob.niceToHave.map((r: string, i: number) => (
                                     <li key={i}>{r}</li>
                                   ))}
                                 </ul>

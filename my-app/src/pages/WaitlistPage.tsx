@@ -20,6 +20,8 @@ import {
 } from "@/components/ui/accordion";
 import { ArrowRight, Mail, Twitter, Linkedin, Github, Calendar, Video, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { submitWaitlist, submitDemoBooking, submitContact, submitMeeting } from "@/services/forms.service";
+import { useToast } from "@/hooks/use-toast";
 
 /* Creative economy professions (~30) + Other */
 const CREATIVE_PROFESSIONS = [
@@ -86,6 +88,7 @@ const faqs = [
 ];
 
 const WaitlistPage = () => {
+  const { toast } = useToast();
   const [step, setStep] = useState(1);
   const [waitlistData, setWaitlistData] = useState({
     name: "",
@@ -99,42 +102,63 @@ const WaitlistPage = () => {
   const [demoData, setDemoData] = useState({ name: "", email: "", company: "", message: "" });
   const [meetingData, setMeetingData] = useState({ name: "", email: "", preferredTime: "", message: "" });
   const [contactData, setContactData] = useState({ name: "", email: "", message: "" });
+  const [waitlistSubmitting, setWaitlistSubmitting] = useState(false);
+  const [demoSubmitting, setDemoSubmitting] = useState(false);
+  const [meetingSubmitting, setMeetingSubmitting] = useState(false);
+  const [contactSubmitting, setContactSubmitting] = useState(false);
 
   const handleWaitlistSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Waitlist signup:", waitlistData);
-    alert("Thank you! Your response helps shape what we build.");
-    setWaitlistData({
-      name: "",
-      email: "",
-      userType: "",
-      industry: "",
-      industryOther: "",
-      problems: "",
-      features: "",
-    });
-    setStep(1);
+    setWaitlistSubmitting(true);
+    const challenges = [waitlistData.industry, waitlistData.industryOther, waitlistData.problems, waitlistData.features].filter(Boolean).join(" | ");
+    submitWaitlist({
+      name: waitlistData.name,
+      email: waitlistData.email,
+      type: waitlistData.userType,
+      challenges,
+    })
+      .catch(() => toast({ title: "Something went wrong", variant: "destructive" }))
+      .finally(() => setWaitlistSubmitting(false));
   };
 
   const handleDemoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Demo request:", demoData);
-    alert("Thank you! We'll be in touch to schedule your demo.");
-    setDemoData({ name: "", email: "", company: "", message: "" });
+    setDemoSubmitting(true);
+    submitDemoBooking({
+      name: demoData.name,
+      email: demoData.email,
+      organization: demoData.company,
+      preferredDate: "",
+      message: demoData.message,
+    })
+      .catch(() => toast({ title: "Something went wrong", variant: "destructive" }))
+      .finally(() => setDemoSubmitting(false));
   };
 
   const handleMeetingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Meeting request:", meetingData);
-    alert("Thank you! We'll confirm your meeting shortly.");
-    setMeetingData({ name: "", email: "", preferredTime: "", message: "" });
+    setMeetingSubmitting(true);
+    submitMeeting({
+      name: meetingData.name,
+      email: meetingData.email,
+      preferredTime: meetingData.preferredTime,
+      message: meetingData.message,
+    })
+      .catch(() => toast({ title: "Something went wrong", variant: "destructive" }))
+      .finally(() => setMeetingSubmitting(false));
   };
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact form:", contactData);
-    alert("Thank you! We'll get back to you soon.");
-    setContactData({ name: "", email: "", message: "" });
+    setContactSubmitting(true);
+    submitContact({
+      name: contactData.name,
+      email: contactData.email,
+      subject: "Contact form",
+      message: contactData.message,
+    })
+      .catch(() => toast({ title: "Something went wrong", variant: "destructive" }))
+      .finally(() => setContactSubmitting(false));
   };
 
   const isCreative = waitlistData.userType === "creator";
@@ -387,12 +411,13 @@ const WaitlistPage = () => {
                         size="lg"
                         className="flex-1 bg-rainbow-violet text-white hover:bg-rainbow-violet/90"
                         disabled={
+                          waitlistSubmitting ||
                           !waitlistData.problems ||
                           !waitlistData.features ||
                           (isCreative && (!waitlistData.industry || (waitlistData.industry === "Other" && !waitlistData.industryOther.trim())))
                         }
                       >
-                        Join waitlist
+                        {waitlistSubmitting ? "Submitting…" : "Join waitlist"}
                         <ArrowRight className="w-4 h-4" />
                       </Button>
                     </div>
@@ -513,8 +538,8 @@ const WaitlistPage = () => {
                   className="border-2 border-rainbow-green/30 focus:border-rainbow-green min-h-[80px]"
                   placeholder="What would you like to discuss?"
                 />
-                <Button type="submit" variant="cta" size="lg" className="w-full bg-rainbow-green text-white hover:bg-rainbow-green/90">
-                  Request meeting
+                <Button type="submit" variant="cta" size="lg" className="w-full bg-rainbow-green text-white hover:bg-rainbow-green/90" disabled={meetingSubmitting}>
+                  {meetingSubmitting ? "Submitting…" : "Request meeting"}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
@@ -565,8 +590,8 @@ const WaitlistPage = () => {
                   className="border-2 border-rainbow-orange/30 focus:border-rainbow-orange min-h-[120px]"
                   placeholder="Your message *"
                 />
-                <Button type="submit" variant="cta" size="lg" className="w-full bg-rainbow-orange text-white hover:bg-rainbow-orange/90">
-                  Send message
+                <Button type="submit" variant="cta" size="lg" className="w-full bg-rainbow-orange text-white hover:bg-rainbow-orange/90" disabled={contactSubmitting}>
+                  {contactSubmitting ? "Submitting…" : "Send message"}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>

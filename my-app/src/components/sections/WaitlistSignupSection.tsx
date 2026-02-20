@@ -11,9 +11,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowRight } from "lucide-react";
+import { submitWaitlist } from "@/services/forms.service";
+import { useToast } from "@/hooks/use-toast";
 
 export function WaitlistSignupSection() {
+  const { toast } = useToast();
   const [step, setStep] = useState(1);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,19 +29,16 @@ export function WaitlistSignupSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would submit to your backend
-    console.log("Waitlist signup:", formData);
-    alert("Thank you! Your response helps shape what we build.");
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      userType: "",
-      problems: "",
-      features: "",
-      industry: "",
-    });
-    setStep(1);
+    setSubmitting(true);
+    const challenges = [formData.industry, formData.problems, formData.features].filter(Boolean).join(" | ");
+    submitWaitlist({
+      name: formData.name,
+      email: formData.email,
+      type: formData.userType,
+      challenges,
+    })
+      .catch(() => toast({ title: "Something went wrong", variant: "destructive" }))
+      .finally(() => setSubmitting(false));
   };
 
   return (
@@ -283,11 +284,12 @@ export function WaitlistSignupSection() {
                     size="lg"
                     className="flex-1"
                     disabled={
+                      submitting ||
                       !formData.problems || !formData.features ||
                       (formData.userType === "creator" && !formData.industry)
                     }
                   >
-                    Join waitlist
+                    {submitting ? "Submitting…" : "Join waitlist"}
                     <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>

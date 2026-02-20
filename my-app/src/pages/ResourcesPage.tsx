@@ -3,124 +3,11 @@ import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, Mic, FileText, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { usePublicContent } from "@/context/PublicContentContext";
+import { EmptyState } from "@/components/EmptyState";
 
-/* Rainbow palette: hero (yellow/green/blue) + other rainbow gradients */
-const RAINBOW_CARD = {
-  yellowGreenBlue:
-    "linear-gradient(to bottom right, hsl(var(--rainbow-yellow)), hsl(var(--rainbow-green)), hsl(var(--rainbow-blue)))",
-  yellowGreen:
-    "linear-gradient(to bottom right, hsl(var(--rainbow-yellow)), hsl(var(--rainbow-green)))",
-  greenBlue:
-    "linear-gradient(to bottom right, hsl(var(--rainbow-green)), hsl(var(--rainbow-blue)))",
-  redOrangeYellow:
-    "linear-gradient(to bottom right, hsl(var(--rainbow-red)), hsl(var(--rainbow-orange)), hsl(var(--rainbow-yellow)))",
-  blueIndigoViolet:
-    "linear-gradient(to bottom right, hsl(var(--rainbow-blue)), hsl(var(--rainbow-indigo)), hsl(var(--rainbow-violet)))",
-  orangeYellow:
-    "linear-gradient(to bottom right, hsl(var(--rainbow-orange)), hsl(var(--rainbow-yellow)))",
-  indigoViolet:
-    "linear-gradient(to bottom right, hsl(var(--rainbow-indigo)), hsl(var(--rainbow-violet)))",
-  accent: {
-    red: "hsl(var(--rainbow-red))",
-    orange: "hsl(var(--rainbow-orange))",
-    yellow: "hsl(var(--rainbow-yellow))",
-    green: "hsl(var(--rainbow-green))",
-    blue: "hsl(var(--rainbow-blue))",
-    indigo: "hsl(var(--rainbow-indigo))",
-    violet: "hsl(var(--rainbow-violet))",
-  },
-};
-
-type ResourceItem = {
-  type: string;
-  icon: typeof Calendar;
-  title: string;
-  author: string;
-  category: string;
-  gradient: string;
-  lineColor: { vertical: string; horizontal: string };
-  heroStyle?: { background: string; accent: string };
-};
-
-const featuredResources: ResourceItem[] = [
-  {
-    type: "Article",
-    icon: Calendar,
-    title: "Understanding the Creative Economy: Size, Scale, and Opportunity",
-    author: "Bunifu Capital Research",
-    category: "Creative Economy",
-    gradient: "",
-    lineColor: { vertical: "yellow", horizontal: "blue" },
-    heroStyle: { background: RAINBOW_CARD.yellowGreenBlue, accent: RAINBOW_CARD.accent.yellow },
-  },
-  {
-    type: "Thought Piece",
-    icon: Mic,
-    title: "Why Creative Income Doesn't Fit Traditional Financial Models",
-    author: "Bunifu Capital",
-    category: "Finance & Creativity",
-    gradient: "",
-    lineColor: { vertical: "blue", horizontal: "violet" },
-    heroStyle: { background: RAINBOW_CARD.blueIndigoViolet, accent: RAINBOW_CARD.accent.indigo },
-  },
-];
-
-const articles: ResourceItem[] = [
-  {
-    type: "Article",
-    icon: FileText,
-    title: "The Funding Gap in Creative Industries",
-    author: "Bunifu Capital Research",
-    category: "Research",
-    gradient: "",
-    lineColor: { vertical: "red", horizontal: "yellow" },
-    heroStyle: { background: RAINBOW_CARD.redOrangeYellow, accent: RAINBOW_CARD.accent.orange },
-  },
-  {
-    type: "Article",
-    icon: FileText,
-    title: "Why Creative Income Needs New Infrastructure",
-    author: "Bunifu Capital",
-    category: "Thought Leadership",
-    gradient: "",
-    lineColor: { vertical: "green", horizontal: "blue" },
-    heroStyle: { background: RAINBOW_CARD.greenBlue, accent: RAINBOW_CARD.accent.green },
-  },
-  {
-    type: "Article",
-    icon: FileText,
-    title: "Understanding the Creative Economy",
-    author: "Bunifu Capital Research",
-    category: "Education",
-    gradient: "",
-    lineColor: { vertical: "indigo", horizontal: "violet" },
-    heroStyle: { background: RAINBOW_CARD.indigoViolet, accent: RAINBOW_CARD.accent.violet },
-  },
-];
-
-const communitySessions: ResourceItem[] = [
-  {
-    type: "Community Session",
-    icon: Users,
-    title: "Monthly Community Session: The Creative Economy Problem",
-    author: "Bunifu Capital",
-    category: "First Tuesday · 6:00 PM EAT",
-    gradient: "",
-    lineColor: { vertical: "orange", horizontal: "yellow" },
-    heroStyle: { background: RAINBOW_CARD.orangeYellow, accent: RAINBOW_CARD.accent.orange },
-  },
-  {
-    type: "Community Session",
-    icon: Users,
-    title: "How Creative Income Works",
-    author: "Bunifu Capital",
-    category: "Third Thursday · 6:00 PM EAT",
-    gradient: "",
-    lineColor: { vertical: "yellow", horizontal: "blue" },
-    heroStyle: { background: RAINBOW_CARD.yellowGreenBlue, accent: RAINBOW_CARD.accent.green },
-  },
-];
+type ResourceItem = import("@/context/PublicContentContext").ResourceItem;
 
 function ResourceCard({ resource, index }: { resource: ResourceItem; index: number }) {
   const hero = resource.heroStyle;
@@ -198,6 +85,8 @@ function ResourceCard({ resource, index }: { resource: ResourceItem; index: numb
 }
 
 const ResourcesPage = () => {
+  const { featuredResources, articles, communitySessions } = usePublicContent();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -287,9 +176,13 @@ const ResourcesPage = () => {
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {featuredResources.map((resource, index) => (
-                <ResourceCard key={resource.title} resource={resource} index={index} />
-              ))}
+              {featuredResources.length === 0 ? (
+                <EmptyState title="No featured resources yet" description="Articles and thought pieces will appear here when published." className="col-span-2" />
+              ) : (
+                featuredResources.map((resource, index) => (
+                  <ResourceCard key={resource.title} resource={resource} index={index} />
+                ))
+              )}
             </div>
           </div>
         </section>
@@ -348,9 +241,13 @@ const ResourcesPage = () => {
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {communitySessions.map((resource, index) => (
-                <ResourceCard key={resource.title} resource={resource} index={index} />
-              ))}
+              {communitySessions.length === 0 ? (
+                <EmptyState title="No community sessions yet" description="Monthly sessions will appear here when scheduled." className="col-span-2" />
+              ) : (
+                communitySessions.map((resource, index) => (
+                  <ResourceCard key={resource.title} resource={resource} index={index} />
+                ))
+              )}
             </div>
 
             <div className="mt-12 flex justify-center">
