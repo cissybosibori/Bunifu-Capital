@@ -16,7 +16,7 @@ export async function getArticles(): Promise<Article[]> {
   throw new Error(NOT_IMPLEMENTED);
 }
 
-export async function getArticle(id: string): Promise<Article | null> {
+export async function getArticle(_id: string): Promise<Article | null> {
   throw new Error(NOT_IMPLEMENTED);
 }
 

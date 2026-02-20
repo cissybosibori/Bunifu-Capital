@@ -481,8 +481,8 @@ const WaitlistPage = () => {
                   className="border-2 border-rainbow-blue/30 focus:border-rainbow-blue min-h-[80px]"
                   placeholder="What would you like to see in the demo?"
                 />
-                <Button type="submit" variant="cta" size="lg" className="w-full bg-rainbow-blue text-white hover:bg-rainbow-blue/90">
-                  Request demo
+                <Button type="submit" variant="cta" size="lg" className="w-full bg-rainbow-blue text-white hover:bg-rainbow-blue/90" disabled={demoSubmitting}>
+                  {demoSubmitting ? "Submitting…" : "Request demo"}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>

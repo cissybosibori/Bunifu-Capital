@@ -33,7 +33,6 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePublicContent } from "@/context/PublicContentContext";
-import { EmptyState } from "@/components/EmptyState";
 
 const DEPARTMENTS = [
   "Tech",
@@ -93,7 +92,7 @@ function CareersPage() {
     });
   }, [departmentFilter, jobTypeFilter, locationFilter, searchQuery]);
 
-  const selectedJob = selectedJobId ? OPEN_ROLES.find((j) => j.id === selectedJobId) : null;
+  const selectedJob = selectedJobId ? openRoles.find((j: Job) => j.id === selectedJobId) : null;
 
   const openApplication = (job: Job | null) => {
     setFormData({
@@ -303,7 +302,7 @@ function CareersPage() {
                             <div>
                               <h3 className="text-sm font-semibold mb-2">Requirements</h3>
                               <ul className="list-disc list-inside text-sm text-foreground/70 space-y-1">
-                                {selectedJob.requirements.map((r, i) => (
+                                {selectedJob.requirements.map((r: string, i: number) => (
                                   <li key={i}>{r}</li>
                                 ))}
                               </ul>
